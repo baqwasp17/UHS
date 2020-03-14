@@ -1,0 +1,16 @@
+* Accessable to only the Admin of the system
+Housekeeper GET *POST /housekeepers
+Housekeeper *GET *DELETE *PATCH /housekeepers/{}
+
+* Accessable to the user who posted the requirements
+requirements *GET *POST /requirements
+requirements *DELETE *PATCH /requirements/{requirementId}
+
+* Accessable to the user who made the booking
+booking *GET *POST /bookings
+booking *DELETE /bookings/{bookingId}
+
+* Accessable to the user whose account it is
+User POST /user/register
+User GET /user/login
+User *DELETE *PATCH /user/:userId
