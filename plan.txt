@@ -14,3 +14,7 @@ booking *DELETE /bookings/{bookingId}
 User POST /user/register
 User GET /user/login
 User *DELETE *PATCH /user/:userId
+
+
+
+* -> means protected route
