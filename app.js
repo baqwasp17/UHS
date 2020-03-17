@@ -1,4 +1,5 @@
 const express = require('express');
+const expressLayouts = require('express-ejs-layouts');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
@@ -6,6 +7,7 @@ const app = express();
 
 dotenv.config();
 
+const indexRouter = require('./api/routes/index');
 const housekeeperRoutes = require('./api/routes/housekeeper');
 const userRoutes = require('./api/routes/user');
 const bookingRoutes = require('./api/routes/booking');
@@ -14,8 +16,15 @@ const requirementRoutes = require('./api/routes/requirement');
 mongoose.connect(process.env.MONGOURI, {
 	useNewUrlParser: true,
 	useUnifiedTopology: true
-});
+})
+.then(() => console.log("Connected To MongoDB"))
+.catch(err => console.log(err));
 
+// EJS
+app.use(expressLayouts);
+app.set('view engine', 'ejs');
+
+// Logging and url parsing
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended:false}));
 app.use(express.json());
@@ -38,6 +47,8 @@ app.use((req, res, next) => {
 	next();
 });
 
+// Routes
+app.use('/', indexRouter);
 app.use('/housekeepers', housekeeperRoutes);
 app.use('/users', userRoutes);
 app.use('/bookings', bookingRoutes);
