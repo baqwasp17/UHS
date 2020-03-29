@@ -1,24 +1,30 @@
-const express = require('express');
-const expressLayouts = require('express-ejs-layouts');
-const morgan = require('morgan');
-const mongoose = require('mongoose');
-const dotenv = require('dotenv');
-const app = express();
+const express 			= require('express')
+	, expressLayouts 	= require('express-ejs-layouts')
+	, morgan 			= require('morgan')
+	, mongoose 			= require('mongoose')
+	, dotenv 			= require('dotenv')
+	, passport			= require('passport')
+	, flash 			= require('connect-flash')
+	, session 			= require('express-session')
+	, indexRouter 		= require('./routes/index')
+	, housekeeperRoutes = require('./routes/housekeeper')
+	, userRoutes 		= require('./routes/user')
+	, bookingRoutes 	= require('./routes/booking')
+	, requirementRoutes = require('./routes/requirement')
+	, app 				= express();
 
 dotenv.config();
 
-const indexRouter = require('./api/routes/index');
-const housekeeperRoutes = require('./api/routes/housekeeper');
-const userRoutes = require('./api/routes/user');
-const bookingRoutes = require('./api/routes/booking');
-const requirementRoutes = require('./api/routes/requirement');
+// Passport Config
+require('./config/passport')(passport);
 
+// MongoDB
 mongoose.connect(process.env.MONGOURI, {
 	useNewUrlParser: true,
 	useUnifiedTopology: true
 })
-.then(() => console.log("Connected To MongoDB"))
-.catch(err => console.log(err));
+.then(() 	=> console.log("Connected To MongoDB"))
+.catch(err 	=> console.log(err));
 
 // EJS
 app.use(expressLayouts);
@@ -26,26 +32,31 @@ app.set('view engine', 'ejs');
 
 // Logging and url parsing
 app.use(morgan('dev'));
-app.use(express.urlencoded({extended:false}));
-app.use(express.json());
+app.use(express.urlencoded({extended: true }));
 
-// CORS headers
-app.use((req, res, next) => {
-	res.header('Access-Control-Allow-Origin', '*');
-	res.header(
-		'Access-Control-Allow-Headers', 
-		'Origin, X-Requested-With, Content-Type, Accept, Authorization'
-	);
+// express session middleware
+app.use(session({
+	secret: 			'secret',
+	resave: 			true,
+	saveUninitialized: 	true,
+}));
 
-	if(req.method === 'OPTIONS') {
-		res.header(
-			'Access-Control-Allow-Methods',
-			'PUT, POST, PATCH, DELETE, GET'
-		);
-		return res.status(200).json({});
-	}
+// Passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Connect flash
+app.use(flash());
+
+// Global var
+app.use(function(req, res, next) {
+	res.locals.success_msg 	= req.flash("success_msg");
+	res.locals.error_msg 	= req.flash("error_msg");
+	res.locals.error 		= req.flash("error");
 	next();
 });
+
+// CORS is not required as this is no longer a REST API
 
 // Routes
 app.use('/', indexRouter);
@@ -57,8 +68,8 @@ app.use('/requirements', requirementRoutes);
 // Error Handling Code
 // Not Found Errors
 app.use((req, res, next) => {
-	const err = new Error("Not Found");
-	err.status = 404;
+	const err 	= new Error("Not Found");
+	err.status 	= 404;
 	next(err);
 });
 

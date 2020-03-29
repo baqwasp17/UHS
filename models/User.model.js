@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
-const bcrypt = require('bcryptjs');
-const Schema = mongoose.Schema;
+const mongoose 	= require('mongoose')
+	, bcrypt 	= require('bcryptjs')
+	, Schema 	= mongoose.Schema;
 
 //const userSchema = new Schema({
 //	firstName: {type:String, required: [true, "Can't be blank"]},
@@ -35,7 +35,10 @@ userSchema.pre('save', function(next) {
 });
 
 userSchema.methods.comparePassword = function(userPassword) {
-	return bcrypt.compareSync(userPassword, this.password);
+	return bcrypt.compareSync(userPassword, this.password, (err, isMatch) => {
+		if(err) throw err;
+		return isMatch;
+	});
 };
 
 module.exports  = mongoose.model('User', userSchema);

@@ -1,17 +1,21 @@
-const express = require('express');
-const router = express.Router();
+const express 	= require('express')
+	, router 	= express.Router()
+	, User 		= require('../models/User.model')
+	, passport 	= require('passport');
 
-const User = require('../models/User.model');
+const { forwardAuthenticated } = require('../config/auth');
+
 // Login Page
-router.get('/login', (req, res, next) => {
+router.get('/login', forwardAuthenticated, (req, res, next) => {
 	res.render('login');
 });
 
 // Register Page
-router.get('/register', (req, res, next) => {
+router.get('/register', forwardAuthenticated, (req, res, next) => {
 	res.render('register');
 });
 
+// Register
 router.post('/register', (req, res, next) => {
 	const { name, email, password, password2 } = req.body;
 	console.log(req.body);
@@ -56,13 +60,32 @@ router.post('/register', (req, res, next) => {
 				const newUser = new User({name, email, password});
 				console.log(newUser);
 				newUser.save()
-				.then(result => console.log(result))
+				.then(result =>{
+					req.flash('success_msg', 'You are now registered and can login');
+					res.redirect('/users/login');
+				})
 				.catch(err => console.log(err));
 			}
 		})
 		.catch(err => console.log(err));
 		// Validation Passed
 	}
+});
+
+// Login
+router.post('/login', (req, res, next) => {
+	passport.authenticate('local', {
+		successRedirect: 	'/dashboard',
+		failureRedirect: 	'/users/login',
+		failureFlash: 		true
+	})(req, res, next);
+});
+
+// Logout
+router.get('/logout', (req, res, next) => {
+	req.logout();
+	req.flash('success_msg', 'You are logged out');
+	req.redirect('/users/login');
 });
 
 /*PROTECTED*/
