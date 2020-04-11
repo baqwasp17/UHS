@@ -1,4 +1,5 @@
 const express 			= require('express')
+	, path				= require('path')
 	, expressLayouts 	= require('express-ejs-layouts')
 	, morgan 			= require('morgan')
 	, mongoose 			= require('mongoose')
@@ -25,6 +26,9 @@ mongoose.connect(process.env.MONGOURI, {
 })
 .then(() 	=> console.log("Connected To MongoDB"))
 .catch(err 	=> console.log(err));
+
+// setting Views folder
+app.set('views', __dirname+'/views');
 
 // EJS
 app.use(expressLayouts);
@@ -55,6 +59,9 @@ app.use(function(req, res, next) {
 	res.locals.error 		= req.flash("error");
 	next();
 });
+
+// setting up for static resources in public folder
+app.use(express.static(path.join(__dirname, 'public')));
 
 // CORS is not required as this is no longer a REST API
 

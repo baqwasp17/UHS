@@ -11,9 +11,13 @@ booking *GET *POST /bookings
 booking *DELETE /bookings/{bookingId}
 
 * Accessable to the user whose account it is
-User POST /user/register
-User GET /user/login
-User *DELETE *PATCH /user/:userId
+User GET		/user/register
+User POST 		/user/register
+User GET 		/user/login
+User POST 		/user/login
+User *GET		/user/account
+User *DELETE 	/user/account/delete
+User *PATCH		/user/account/patch
 
 
 

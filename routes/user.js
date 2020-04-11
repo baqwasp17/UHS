@@ -85,7 +85,7 @@ router.post('/login', (req, res, next) => {
 router.get('/logout', (req, res, next) => {
 	req.logout();
 	req.flash('success_msg', 'You are logged out');
-	req.redirect('/users/login');
+	res.redirect('/users/login');
 });
 
 /*PROTECTED*/
