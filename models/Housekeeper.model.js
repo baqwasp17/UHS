@@ -1,9 +1,10 @@
 const mongoose 	= require('mongoose')
 	, Schema 	= mongoose.Schema;
 
-const serviceSchema = new Schema({
-	
-});
+const cleaningServiceSchema = require('CleaningSerivce.model');
+const cookingServiceSchema = require('CookingService.model');
+const babySittingServiceSchema = require('BabySittingService.model');
+const elderlyCareServiceSchema = require('ElderlyCareService.model');
 
 const verificationSchema = new Schema({
 	verified: {type: Boolean, default: false},
@@ -21,7 +22,10 @@ const housekeeperSchema = new Schema({
 	lastName: {type: String, required: [true, "Can't be Blank"]},
 	gender: {type: String, required: [true, "Can't be Blank"], enum: ["Male", "Female"]},
 	verificationStatus: verificationSchema,
-	services: [serviceSchema],
+	cleaningService:	{type: cleaningServiceSchema},
+	cookingService:		{type: cookingServiceSchema},
+	babySittingService:	{type: babySittingServiceSchema},
+	elderlyCareService:	{type: elderlyCareServiceSchema},
 	experience: {
 		type: Object,
 		years: {type: Number, default: 0},

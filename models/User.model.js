@@ -11,6 +11,8 @@ const mongoose 	= require('mongoose')
 //		unique: true, 
 //		lowercase: true
 //	},
+//	Address: String,
+//	phoneNo: String,
 //	password: String,
 //	permissionLevel: Number
 //});
