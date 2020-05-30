@@ -1,0 +1,243 @@
+
+
+/**********profile*******************/
+.profile-main {
+    float: left;
+    width: 98%;
+    background-color: transparent;
+    padding: 1%;
+    margin: 0px 0 15px;
+}
+
+.profile-imgdiv {
+    float: left;
+    width: 100%;
+    margin: 0 0% 2% 0;
+    position: relative;
+    background-color: #fff;
+}
+.profile-imgdiv > img {
+width: 100%;
+float: left;
+margin: 0 10px 0 0;
+max-width: 189px;
+}
+
+.profile-sallery {
+    float: left;
+    margin: 0 0 10px;
+    background-color: #eee;
+    padding: 1%;
+}
+
+.profile-sallery p {
+    display: inline-block;
+}
+
+.profile-sallery b {
+    font-size: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 10px;
+    color: #3D8901;
+    font-weight:normal;
+}
+
+.profile-info {
+    float: left;
+   background-color: #fff;
+    width: 98%;
+    padding:1%;
+    margin-bottom: 10px;
+}
+.profile-btns {
+float: right;
+width: 24%;
+}
+.profile-btns .btn_large {
+display: block;
+width: 87%;
+margin: 0 0 10px;
+text-align: center;
+}
+.profile-experiance {
+    float: left;
+    width: 100%;
+    clear: left;
+    margin: 10px 0 10px;
+}
+
+.profile-experiance p {
+display: inline-block;
+margin: 0 4px 0 0;
+vertical-align: middle;
+}
+
+.profile-experiance b {
+    font-size: 16px;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 0px 0 7px; 
+    font-weight:normal;
+    color: #3D8901;
+}
+
+.profile-specialitiesdiv {
+float: left;
+width: 46%;
+/* background-color: #f4f4f4; */
+min-height: 105px;
+margin: 10px 1%;
+padding: 0 1% 10px;
+border-bottom: 1px solid #ddd; 
+}
+/*.profile-specialitiesdiv span {
+display: inline-block;
+width: 31%;
+vertical-align: top; 
+position: relative;
+margin: 0 1% 10px 0;
+border-bottom: 1px solid #ddd;
+}
+
+.profile-specialitiesdiv span b {
+font-weight: normal;
+font-size: 11px;
+color: #aaa;
+display: inline-block;
+vertical-align: middle;
+}*/
+.profile-specialitiesdiv big, .prfl_tbl big {
+color: #E74A0C;
+font-size: 15px;
+margin: 4px 0;
+display: block;
+}
+.profile-specialitiesdiv span i {
+width: 25px;
+position: absolute;
+top: 0px;
+right: 8px;
+}
+.profile-specialitiesdiv span img {
+width: 45px;
+display: inline-block;
+vertical-align: middle;
+}
+.profile-specialitiesdiv span i img {
+    width: auto;
+}
+
+.profile-specialitiesdiv span {
+display: inline-block;
+width: auto;
+vertical-align: top;
+text-align: center;
+position: relative;
+max-width: 20%;
+}
+
+.profile-specialitiesdiv span b {
+    font-weight: normal;
+    font-size: 11px;
+    color:#494949;
+    display: block;
+}
+
+.profile-imgdiv ul {
+    list-style: none;
+    /* border: 1px solid #eee; */
+    padding: 0%;
+    width: 79%;
+    display: block;
+    float: right;
+}
+
+.profile-imgdiv ul li {
+    /* border-bottom: 1px solid #ddd; */
+}
+
+.profile-imgdiv ul li a { 
+    background-color: #f4f4f4;
+    display: block; 
+}
+.btn_interview
+{
+    background-position: left center;
+    display: block;
+    text-align: center;
+    background-color: #00BCE1;
+    padding: 8px 10px;
+    color: #fff;
+    font-size: 15px; 
+}
+.btn_interview i {
+display: inline-block;
+vertical-align: middle;
+width: 27px; 
+}
+
+.profile-imgdiv ul li i {
+    display: inline-block;
+    vertical-align: middle;
+    width: 15px;
+}
+.profile-imgdiv ul li {
+    padding: 6px; 
+    display: inline-block;
+    margin: 3px 0;
+    /* float: left; */
+    vertical-align: top;
+    width: 99%;
+}
+.profile-imgdiv ul li a:hover
+{
+     background-color: #eee;
+}
+.profile-imgdiv ul li a i {
+    float: right;
+    font-style: normal;
+}
+.profile-content {
+float: left;
+width: 98%;
+border-bottom: 1px solid transparent;
+padding: 0%;
+}
+
+.profile-content .headingtext {
+    /* margin: 42px; */
+    display: block;
+    margin: 0px 0 10px;
+}
+
+
+.profile-content.aboutdiv {
+    width: 34%;
+    border:0;
+}
+
+.profile-content.videodiv {
+    width: 45%;
+    border:0;
+    background-color: #f4f4f4;
+}
+
+.profile-content.videodiv iframe{
+    width: 100%;
+    height:240px;
+    
+}
+.profile-content.col-3 {
+width: 29%;
+margin-right: 2%;
+}
+
+@media only screen and (max-width: 480px){
+.profile-imgdiv ul li {
+  padding:4%; 
+  width: 92%;
+}
+
+
+}

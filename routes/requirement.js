@@ -1,24 +1,19 @@
-const express = require('express');
-const router = express.Router();
+const express 		= require('express');
+const reqController = require('../controllers/Requirement.controller.js');
+const authenticate 	= require('../middleware/Auth.js');
+const router 		= express.Router();
 
-/*PROTECTED*/
-router.get('/', (req, res, next) => {
+// get requirement
+router.get('/getRequirement', authenticate, reqController.getRequirement);
 
-});
+// post requirement
+router.post('/postRequirement', authenticate, reqController.postRequirement);
 
-/*PROTECTED*/
-router.post('/', (req, res, next) => {
+// patch requirement
+router.patch('/updateRequirement/:reqId', authenticate, reqController.patchRequirement);
 
-});
+// delete requirement
+router.patch('/deleteRequirement/:reqId', authenticate, reqController.deleteRequirement);
 
-/*PROTECTED*/
-router.delete('/:requirementId', (req, res, next) => {
-	const requirementId = req.params.requirementId;
-});
-
-/*PROTECTED*/
-router.patch('/:requirementId', (req, res, next) => {
-	const requirementId = req.params.requirementId;
-});
-
+router.get('/dashboard', authenticate, reqController.testRequirement);
 module.exports = router;

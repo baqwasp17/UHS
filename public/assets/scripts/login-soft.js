@@ -2,265 +2,307 @@ var Login = function () {
 
 	var handleLogin = function() {
 		$('.login-form').validate({
-	            errorElement: 'label', //default input error message container
-	            errorClass: 'help-inline', // default input error message class
-	            focusInvalid: false, // do not focus the last invalid input
-	            rules: {
-	                username: {
-	                    required: true
-	                },
-	                password: {
-	                    required: true
-	                },
-	                remember: {
-	                    required: false
-	                }
-	            },
+				errorElement: 'label', //default input error message container
+				errorClass: 'help-inline', // default input error message class
+				focusInvalid: false, // do not focus the last invalid input
+				rules: {
+					email: {
+						required: true
+					},
+					password: {
+						required: true
+					},
+					remember: {
+						required: false
+					}
+				},
 
-	            messages: {
-	                username: {
-	                    required: "Username is required1."
-	                },
-	                password: {
-	                    required: "Password is required2."
-	                }
-	            },
+				messages: {
+					email: {
+						required: "Email is required."
+					},
+					password: {
+						required: "Password is required."
+					}
+				},
 
-	            invalidHandler: function (event, validator) { //display error alert on form submit   
-	                $('.alert-error', $('.login-form')).show();
-	            },
+				invalidHandler: function (event, validator) { //display error alert on form submit   
+					$('.alert-error', $('.login-form')).show();
+				},
 
-	            highlight: function (element) { // hightlight error inputs
-	                $(element)
-	                    .closest('.control-group').addClass('error'); // set error class to the control group
-	            },
+				highlight: function (element) { // hightlight error inputs
+					$(element)
+						.closest('.control-group').addClass('error'); // set error class to the control group
+				},
 
-	            success: function (label) {
-	                label.closest('.control-group').removeClass('error');
-	                label.remove();
-	            },
+				success: function (label) {
+					label.closest('.control-group').removeClass('error');
+					label.remove();
+				},
 
-	            errorPlacement: function (error, element) {
-	                error.addClass('help-small no-left-padding').insertAfter(element.closest('.input-icon'));
-	            },
+				errorPlacement: function (error, element) {
+					error.addClass('help-small no-left-padding').insertAfter(element.closest('.input-icon'));
+				},
 
-	            submitHandler: function (form) {
-	                form.submit();
-	            }
-	        });
+				submitHandler: function (form) {
+					form.submit();
+				}
+			});
 
-	        $('.login-form input').keypress(function (e) {
-	            if (e.which == 13) {
-	                if ($('.login-form').validate().form()) {
-	                    $('.login-form').submit();
-	                }
-	                return false;
-	            }
-	        });
+			$('.login-form input').keypress(function (e) {
+				if (e.which == 13) {
+					if ($('.login-form').validate().form()) {
+						$('.login-form').submit();
+					}
+					return false;
+				}
+			});
 	}
 
 	var handleForgetPassword = function () {
 		$('.forget-form').validate({
-	            errorElement: 'label', //default input error message container
-	            errorClass: 'help-inline', // default input error message class
-	            focusInvalid: false, // do not focus the last invalid input
-	            ignore: "",
-	            rules: {
-	                email: {
-	                    required: true,
-	                    email: true
-	                }
-	            },
+				errorElement: 'label', //default input error message container
+				errorClass: 'help-inline', // default input error message class
+				focusInvalid: false, // do not focus the last invalid input
+				ignore: "",
+				rules: {
+					email: {
+						required: true,
+						email: true
+					}
+				},
 
-	            messages: {
-	                email: {
-	                    required: "Email is required."
-	                }
-	            },
+				messages: {
+					email: {
+						required: "Email is required."
+					}
+				},
 
-	            invalidHandler: function (event, validator) { //display error alert on form submit   
+				invalidHandler: function (event, validator) { //display error alert on form submit   
 
-	            },
+				},
 
-	            highlight: function (element) { // hightlight error inputs
-	                $(element)
-	                    .closest('.control-group').addClass('error'); // set error class to the control group
-	            },
+				highlight: function (element) { // hightlight error inputs
+					$(element)
+						.closest('.control-group').addClass('error'); // set error class to the control group
+				},
 
-	            success: function (label) {
-	                label.closest('.control-group').removeClass('error');
-	                label.remove();
-	            },
+				success: function (label) {
+					label.closest('.control-group').removeClass('error');
+					label.remove();
+				},
 
-	            errorPlacement: function (error, element) {
-	                error.addClass('help-small no-left-padding').insertAfter(element.closest('.input-icon'));
-	            },
+				errorPlacement: function (error, element) {
+					error.addClass('help-small no-left-padding').insertAfter(element.closest('.input-icon'));
+				},
 
-	            submitHandler: function (form) {
-	                form.submit();
-	            }
-	        });
+				submitHandler: function (form) {
+					form.submit();
+				}
+			});
 
-	        $('.forget-form input').keypress(function (e) {
-	            if (e.which == 13) {
-	                if ($('.forget-form').validate().form()) {
-	                    $('.forget-form').submit();
-	                }
-	                return false;
-	            }
-	        });
+			$('.forget-form input').keypress(function (e) {
+				if (e.which == 13) {
+					if ($('.forget-form').validate().form()) {
+						$('.forget-form').submit();
+					}
+					return false;
+				}
+			});
 
-	        jQuery('#forget-password').click(function () {
-	            jQuery('.login-form').hide();
-	            jQuery('.forget-form').show();
-	        });
+			jQuery('#forget-password').click(function () {
+				jQuery('.login-form').hide();
+				jQuery('.forget-form').show();
+			});
 
-	        jQuery('#back-btn').click(function () {
-	            jQuery('.login-form').show();
-	            jQuery('.forget-form').hide();
-	        });
+			jQuery('#back-btn').click(function () {
+				jQuery('.login-form').show();
+				jQuery('.forget-form').hide();
+			});
 
 	}
 
 	var handleRegister = function () {
 
 		function format(state) {
-            if (!state.id) return state.text; // optgroup
-            return "<img class='flag' src='assets/img/flags/" + state.id.toLowerCase() + ".png'/>&nbsp;&nbsp;" + state.text;
-        }
+			if (!state.id) return state.text; // optgroup
+			return "<img class='flag' src='assets/img/flags/" + state.id.toLowerCase() + ".png'/>&nbsp;&nbsp;" + state.text;
+		}
 
 
 		$("#select2_sample4").select2({
 		  	placeholder: '<i class="icon-map-marker"></i>&nbsp;Select a Country',
-            allowClear: true,
-            formatResult: format,
-            formatSelection: format,
-            escapeMarkup: function (m) {
-                return m;
-            }
-        });
+			allowClear: true,
+			formatResult: format,
+			formatSelection: format,
+			escapeMarkup: function (m) {
+				return m;
+			}
+		});
 
 
 			$('#select2_sample4').change(function () {
-                $('.register-form').validate().element($(this)); //revalidate the chosen dropdown value and show error or success message for the input
-            });
+				$('.register-form').validate().element($(this)); //revalidate the chosen dropdown value and show error or success message for the input
+			});
+			
+		$('.resetpass-form').validate({
+				errorElement: 'label', //default input error message container
+				errorClass: 'help-inline', // default input error message class
+				focusInvalid: false, // do not focus the last invalid input
+				rules: {
+					password: {
+						required: true
+					},
+					rpassword: {
+						equalTo: '#register_password'
+					}
+				},
+				messages: {
+					password: {
+						required: "New Password is required"
+					},
+					rpassword: {
+						equalTo: "Please Enter the password again"
+					}
+				},
 
+				invalidHandler: function (event, validator) { //display error alert on form submit   
+					$('.alert-error', $('.resetpass-form')).show();
+				},
 
+				highlight: function (element) { // hightlight error inputs
+					$(element)
+						.closest('.control-group').addClass('error'); // set error class to the control group
+				},
 
-         $('.register-form').validate({
-	            errorElement: 'label', //default input error message container
-	            errorClass: 'help-inline', // default input error message class
-	            focusInvalid: false, // do not focus the last invalid input
-	            ignore: "",
-	            rules: {
-	                
-	                fullname: {
-	                    required: true
-	                },
-	                email: {
-	                    required: true,
-	                    email: true
-	                },
-	                address: {
-	                    required: true
-	                },
-	                city: {
-	                    required: true
-	                },
-	                country: {
-	                    required: true
-	                },
+				success: function (label) {
+					label.closest('.control-group').removeClass('error');
+					label.remove();
+				},
 
-	                username: {
-	                    required: true
-	                },
-	                password: {
-	                    required: true
-	                },
-	                rpassword: {
-	                    equalTo: "#register_password"
-	                },
+				errorPlacement: function (error, element) {
+					error.addClass('help-small no-left-padding').insertAfter(element.closest('.input-icon'));
+				},
 
-	                tnc: {
-	                    required: true
-	                }
-	            },
+				submitHandler: function (form) {
+					form.submit();
+				}
 
-	            messages: { // custom messages for radio buttons and checkboxes
-	                tnc: {
-	                    required: "Please accept TNC first."
-	                }
-	            },
+		})
+		$('.resetpass-form input').keypress(function (e) {
+				if (e.which == 13) {
+					if ($('resetpass-form').validate().form()) {
+						console.log("No Problem");
+						$('resetpass-form').submit();
+					}
+					console.log("There is some problem");
+					return false;
+				}
+			});
 
-	            invalidHandler: function (event, validator) { //display error alert on form submit   
+		 $('.register-form').validate({
+				errorElement: 'label', //default input error message container
+				errorClass: 'help-inline', // default input error message class
+				focusInvalid: false, // do not focus the last invalid input
+				ignore: "",
+				rules: {
+					
+					fullname: {
+						required: true
+					},
+					email: {
+						required: true,
+						email: true
+					},
+					address: {
+						required: true
+					},
+					city: {
+						required: true
+					},
+					country: {
+						required: true
+					},
 
-	            },
+					email: {
+						required: true
+					},
+					password: {
+						required: true
+					},
+					rpassword: {
+						equalTo: "#register_password"
+					},
 
-	            highlight: function (element) { // hightlight error inputs
-	                $(element)
-	                    .closest('.control-group').addClass('error'); // set error class to the control group
-	            },
+					tnc: {
+						required: true
+					}
+				},
 
-	            success: function (label) {
-	                label.closest('.control-group').removeClass('error');
-	                label.remove();
-	            },
+				messages: { // custom messages for radio buttons and checkboxes
+					tnc: {
+						required: "Please accept TNC first."
+					}
+				},
 
-	            errorPlacement: function (error, element) {
-	                if (element.attr("name") == "tnc") { // insert checkbox errors after the container                  
-	                    error.addClass('help-small no-left-padding').insertAfter($('#register_tnc_error'));
-	                } else if (element.closest('.input-icon').size() === 1) {
-	                    error.addClass('help-small no-left-padding').insertAfter(element.closest('.input-icon'));
-	                } else {
-	                	error.addClass('help-small no-left-padding').insertAfter(element);
-	                }
-	            },
+				invalidHandler: function (event, validator) { //display error alert on form submit   
 
-	            submitHandler: function (form) {
-	                form.submit();
-	            }
-	        });
+				},
+
+				highlight: function (element) { // hightlight error inputs
+					$(element)
+						.closest('.control-group').addClass('error'); // set error class to the control group
+				},
+
+				success: function (label) {
+					label.closest('.control-group').removeClass('error');
+					label.remove();
+				},
+
+				errorPlacement: function (error, element) {
+					if (element.attr("name") == "tnc") { // insert checkbox errors after the container				  
+						error.addClass('help-small no-left-padding').insertAfter($('#register_tnc_error'));
+					} else if (element.closest('.input-icon').size() === 1) {
+						error.addClass('help-small no-left-padding').insertAfter(element.closest('.input-icon'));
+					} else {
+						error.addClass('help-small no-left-padding').insertAfter(element);
+					}
+				},
+
+				submitHandler: function (form) {
+					form.submit();
+				}
+			});
 
 			$('.register-form input').keypress(function (e) {
-	            if (e.which == 13) {
-	                if ($('.register-form').validate().form()) {
-	                    $('.register-form').submit();
-	                }
-	                return false;
-	            }
-	        });
+				if (e.which == 13) {
+					if ($('.register-form').validate().form()) {
+						$('.register-form').submit();
+					}
+					return false;
+				}
+			});
 
-	        jQuery('#register-btn').click(function () {
-	            jQuery('.login-form').hide();
-	            jQuery('.register-form').show();
-	        });
+			jQuery('#register-btn').click(function () {
+				jQuery('.login-form').hide();
+				jQuery('.register-form').show();
+			});
 
-	        jQuery('#register-back-btn').click(function () {
-	            jQuery('.login-form').show();
-	            jQuery('.register-form').hide();
-	        });
+			jQuery('#register-back-btn').click(function () {
+				jQuery('.login-form').show();
+				jQuery('.register-form').hide();
+			});
 	}
-    
-    return {
-        //main function to initiate the module
-        init: function () {
-        	
-            handleLogin();
-            handleForgetPassword();
-            handleRegister();        
+	
+	return {
+		//main function to initiate the module
+		init: function () {
+			
+			handleLogin();
+			handleForgetPassword();
+			handleRegister();		
+		}
 
-            $.backstretch([
-		        "assets/img/bg/1.jpg",
-		        "assets/img/bg/2.jpg",
-		        "assets/img/bg/3.jpg",
-		        "assets/img/bg/4.jpg"
-		        ], {
-		          fade: 1000,
-		          duration: 8000
-		    });
-	       
-        }
-
-    };
+	};
 
 }();

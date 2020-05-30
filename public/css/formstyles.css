@@ -1,0 +1,467 @@
+@import url(https://fonts.googleapis.com/css?family=Laila:400,700);
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0; 
+  vertical-align: top;
+  outline: none;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+ 
+
+br { display: block; line-height: 1.6em; } 
+
+input, textarea { 
+  -webkit-font-smoothing: antialiased;
+  outline: none; 
+}
+
+strong, b { font-weight: bold; }
+em, i { font-style: italic; }
+
+h1 {
+  display: block;
+  font-size: 3.1em;
+  line-height: 1.45em;
+  font-family: 'Laila', serif;
+  text-align: center;
+  font-weight: bold;
+  color: #555;
+  text-shadow: 1px 1px 0 #fff;
+}
+
+
+/** form field **/
+.form {
+  display: block;
+  margin: 0 0 30px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #e4e4e4;
+  border-radius: 5px;
+  font-size: 0;
+  width:100%
+}
+.col-2.parentdiv {
+padding: 0;
+}
+ 
+.col-2.timeslotdiv {
+padding: 0;
+border: 0;
+margin: 0;
+/*box-shadow: 1px 0px #e4e4e4; */
+}
+.col-2.timeslotdiv label td select {
+    margin: 0;
+}
+
+.col-2.timeslotdiv label table.frm_tbl {
+    margin: 7px 0 5px;
+}
+
+.col-2.timeslotdiv label select {
+    /* margin: 9px 0 0; */
+}
+
+.col-2.timeslotdiv .frm_row {
+    margin: 0;
+} 
+.form div > label {
+  display: block;
+  padding: 20px 20px 10px;
+  vertical-align: top; 
+  font-weight: bold; 
+  cursor: pointer;
+}
+.form div.switch label {
+  padding: 16px 20px 13px;
+}
+
+.col-1, .col-2, .col-3, .col-4  
+{
+    border: none;
+    /*                             
+  border-bottom: 1px solid #e4e4e4; 
+  box-shadow: 1px 1px #e4e4e4;
+
+border-top: 1px solid #e4e4e4;
+border-left: 1px solid #e4e4e4;*/
+}
+
+.form div .col-4 {
+  height: 86px;
+}
+
+input, textarea {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  height: 40px;
+  line-height: 27px;
+  margin: 5px -5px 0;
+  padding: 7px 5px 3px;
+  border: 1px solid #eee;
+  outline: none;
+  color: #555;
+  /*font-family: 'Helvetica Neue', Arial, sans-serif;*/
+  font-weight: normal;
+  font-size: 14px;
+  opacity: .9;
+  transition: all linear .3s;
+}
+
+.form div>select {
+    margin: 6px 5% 0px;
+width: 87%;
+}
+
+.form div>input, .form div>textarea {
+  margin: 6px 5% 0px;
+  width: 89%;
+  padding: 4px 1%;
+}
+
+.col-submit {
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+}
+
+select {
+display: block;
+width: 100%;
+padding: 8px;
+color: #555;
+margin: 7px 0 0;
+font-weight: 500;
+background: rgba(255, 255, 255, 0.43);
+border: 1px solid #eee;
+outline: none;
+/*font-family: 'Helvetica Neue', Arial, sans-serif;*/
+font-size: 14px;
+opacity: 0.9;
+transition: all linear .3s; 
+}
+
+input:focus, select:focus {
+  opacity: 1;
+}
+
+
+
+/** button design based on https://codepen.io/guvootes/pen/eyDAb **/
+.submitbtn  {
+  width: 100%;
+  height: 35px;
+  border: none;
+  border-radius: 4px;
+  margin: 0 0 15px 0;
+  font-size: 14px;
+  color: #fff;
+  font-weight: bold;
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.3);
+  overflow: hidden;
+  outline: none;
+}
+
+.submitbtn {
+  background-image: -moz-linear-gradient(#97c16b, #8ab959);
+  background-image: -webkit-linear-gradient(#97c16b, #8ab959);
+  background-image: linear-gradient(#4bb8e7, #228fbe);
+  border-bottom: 1px solid #1582b1;
+  cursor: pointer;
+  color: #fff;
+}
+.submitbtn:hover {
+  background-image: -moz-linear-gradient(#8ab959, #7eaf4a);
+  background-image: -webkit-linear-gradient(#8ab959, #7eaf4a);
+  background-image: linear-gradient(#228fbe, #4bb8e7);
+}
+.submitbtn:active {
+  height: 34px;
+  border-bottom: 0;
+  margin: 1px 0 0 0;
+  background-image: -moz-linear-gradient(#7eaf4a, #8ab959);
+  background-image: -webkit-linear-gradient(#7eaf4a, #8ab959);
+  background-image: linear-gradient(#228fbe, #4bb8e7);
+  -moz-box-shadow: inset 0 1px 3px 1px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: inset 0 1px 3px 1px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 1px 3px 1px rgba(0, 0, 0, 0.3);
+}
+
+.frm_row.col-2 {
+width: 48%;
+margin-right: 1%;
+border: 0;
+padding: 0;
+box-shadow: none;
+}
+.requirmenttypes label select {
+background-color: #fff;
+opacity: 1;
+padding: 8px 0;
+margin: 3px 0 4px;
+}
+table td select {
+margin: 2px 0;
+}
+
+
+
+/**/
+
+
+input#fp_Photo {
+    width: 65%;
+    clear: left;
+}
+
+img#img_Account {
+width: 19%;
+padding: 3px;
+margin:-19px 0% -2px 12%;
+}
+ 
+ 
+ .chklist_pannel.skilspanel label {
+background-color: #6FB442;
+padding: 4px;
+display: block;
+font-size: 15px;
+color: #fff;
+background-position: right 10px;
+border-radius: 30px;
+box-shadow: 1px 1px 9px rgba(0, 0, 0, 0.45);
+border-bottom: 4px solid #A0D37E;
+margin: -4px -62px 0 0;
+background-image: none;
+}
+
+
+.frm_row.frmbtn_div .btn_auto {
+font-size: 18px;
+padding: 10px 35px;
+height: auto;
+width: auto;
+font-size: 16px;
+}
+
+.form div>input#btn_Submit {
+height: auto;
+padding: 5px 10px;
+width: auto;
+}
+.container > big {
+    border-bottom: 1px dotted #aaa;
+    display: block;
+    font-size: 20px;
+    margin: 10px 0;
+}
+.frm_collarge.grayback { 
+    width: 100%;
+}
+.frm_row.frmbtn_div { 
+width: 100%; 
+}
+
+
+.requirmenttypes {
+padding: 0;
+}
+.requirmenttypes p {
+margin: 15px 20px;
+font-weight: bold;
+}
+.requirmenttypes .col-2 {
+padding: 10px 2%;
+}
+.requirmenttypes .col-2.parentdiv {
+padding: 0;
+}
+
+
+.col-2.parentdiv td {
+    border: 0;
+    /*padding: 9px;*/
+    padding: 0px;
+}
+
+.col-2.parentdiv table {
+      margin: 4px 20px 0px;
+  width: 90%;
+}
+.requirmenttypes .col-2 select {
+    margin: 10px 0;
+    width: 100%;
+    height: 32px;
+}
+.requirmenttypes .col-2.parentdiv>select {
+margin: 6px 20px 3px;
+width:84%;
+}
+.form div label .rdo_panel {
+margin-top: 2px;
+}
+.col-2.parentdiv .rdo_panel td {
+    border: 0;
+    padding: 0;
+}
+.col-2.parentdiv .col-2.parentdiv {
+margin: 0;
+box-shadow: none;
+}
+
+
+
+
+.requirmenttypes .col-2 .chklist_pannel tr {
+    width: 50%;
+    margin: 0;
+}
+
+.requirmenttypes .col-2 .chklist_pannel.smallone tr {
+    width: 33%;
+}
+.chklist_pannel span.switchery.switchery-small {
+margin-top: 8px;
+margin-left: 24px;
+}
+
+
+.col-2 {
+width: 49%;
+}
+.col-3 {
+width: 33.33333%;
+display: inline-block;
+} 
+
+
+ .StarRatingcntrl {
+  margin: 13px auto 4px;
+  width: 73%;
+}
+   .StarCssClass {
+  background-position: center bottom;
+  float: left;
+  width: 20%;
+  height: 25px;
+  background-image: url(https://www.bookmybai.com/images/blankstar.png);
+  background-repeat: no-repeat;
+  background-size: 26px;
+}
+.StarCssClass.FilledStarCssClass{background-image:url(https://www.bookmybai.com/images/coloredstar.png);background-position:center top;}
+
+
+/** responsive design **/
+@media(min-width: 850px){
+  .form div { display: inline-block; }
+  .col-submit { display: block; }
+  
+    .col-1, .col-2, .col-3, .col-4 { border: none; /*box-shadow: 1px 1px #e4e4e4; border-top: 1px solid #e4e4e4;
+border-left: 1px solid #e4e4e4;*/ }
+  .col-1 { width: 99% }
+  .col-2 { width: 49.6% }
+  .col-3 { width: 33% }
+  .col-4 { width: 25% }
+  
+  .col-submit .submitbtn  { width: 30%; margin: 0 auto; }
+}
+
+@media(max-width: 480px){
+.frm_row.col-2 {
+width: 100%;
+margin-right: 1%;
+border: 0;
+padding: 0;
+box-shadow: none;
+margin-bottom: 20px;
+}
+.col-2 {
+width: 100%;
+}
+.col-3 {
+width: 100%;
+display: inline-block;
+} 
+.form div > label { 
+padding: 20px 4% 10px; 
+}
+
+
+ .requirmenttypes p {
+    margin: 0 0 7px;
+    font-weight: bold;
+    padding: 5px;
+}
+.frm_collarge span {
+margin: 0 0 7px;
+display: block;
+padding: 20px 2% 10px;
+}
+.requirmenttypes div label {
+padding: 20px 2% 10px;
+}
+
+
+
+.requirmenttypes { 
+padding: 2%;
+}
+.form div>select {
+margin: 6px 3% 10px;
+width: 93%;
+border: 1px solid #eee;
+padding: 8px 1%;
+}
+input, textarea { 
+border: 1px solid #eee;
+margin-bottom:10px;
+}
+select {
+border: 1px solid #eee;
+/* margin-bottom: 10px; */
+margin: 5px -5px 0;
+padding: 8px 5px 8px;
+width: 103%;
+}
+.form div>input, .form div>textarea {
+margin: 6px 3% 10px;
+width: 90.5%;
+padding: 5px 1%;
+}
+table#rd_Living {
+margin: 6px 3% 0px;
+width: 93%;
+}
+.requirmenttypes div td label {
+padding: 9px 2% 10px;
+}
+.col-2.parentdiv table { 
+margin: 6px 3% 4px;
+width: 94%;
+}
+.col-2.parentdiv table.rdo_panel {
+margin: 6px 3% 4px;
+width: 96%;
+text-align: left;
+}
+.requirmenttypes .col-2 .chklist_pannel.smallone tr {
+width: 100%;
+}
+.requirmenttypes .col-2.parentdiv>select {
+margin: 6px 3% 10px;
+width: 94%;
+}
+/*.requirmenttypes .chklist_pannel label {
+width: 94%;
+margin: -6px -35px 6px 0;
+}*/
+}

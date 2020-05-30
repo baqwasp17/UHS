@@ -1,23 +1,30 @@
-const express 			= require('express')
-	, path				= require('path')
-	, expressLayouts 	= require('express-ejs-layouts')
-	, morgan 			= require('morgan')
-	, mongoose 			= require('mongoose')
-	, dotenv 			= require('dotenv')
-	, passport			= require('passport')
-	, flash 			= require('connect-flash')
-	, session 			= require('express-session')
-	, indexRouter 		= require('./routes/index')
-	, housekeeperRoutes = require('./routes/housekeeper')
-	, userRoutes 		= require('./routes/user')
-	, bookingRoutes 	= require('./routes/booking')
-	, requirementRoutes = require('./routes/requirement')
-	, app 				= express();
+const express 			= require('express');
+const dotenv 			= require('dotenv');
+const engine			= require('ejs-mate');
+const bodyParser 		= require('body-parser');
+const flash 			= require('connect-flash');
+const morgan 			= require('morgan');
+const mongoose			= require('mongoose');
+const path				= require('path');
+const crypto			= require('crypto');
+const cookieParser		= require('cookie-parser');
+const session 			= require('express-session');
+const MongoDBStore		= require('connect-mongodb-session')(session);
+const requirementRoutes = require('./routes/requirement.js');
+const housekeeperRoutes = require('./routes/housekeeper.js');
+const userRoutes 		= require('./routes/user.js');
+const bookingRoutes 	= require('./routes/booking.js');
+const indexRouter 		= require('./routes/index.js');
+const errorController	= require('./controllers/Error.controller.js');
+const authenticate		= require('./middleware/Auth.js');
+const app 				= express();
 
+
+const store = new MongoDBStore({
+	uri: process.env.MONGOURI,
+	collection: 'UHSSessions'
+});
 dotenv.config();
-
-// Passport Config
-require('./config/passport')(passport);
 
 // MongoDB
 mongoose.connect(process.env.MONGOURI, {
@@ -29,65 +36,108 @@ mongoose.connect(process.env.MONGOURI, {
 
 // setting Views folder
 app.set('views', __dirname+'/views');
-
-// EJS
-app.use(expressLayouts);
+app.engine('ejs', engine);
 app.set('view engine', 'ejs');
 
-// Logging and url parsing
+// Logging, url, json, cookie parsing etc
 app.use(morgan('dev'));
-app.use(express.urlencoded({extended: true }));
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
 
 // express session middleware
 app.use(session({
-	secret: 			'secret',
-	resave: 			true,
-	saveUninitialized: 	true,
+	secret: 			process.env.SESSION_SECRET || 'secret',
+	resave: 			false,
+	saveUninitialized: 	false,
+	store:				store
 }));
-
-// Passport middleware
-app.use(passport.initialize());
-app.use(passport.session());
 
 // Connect flash
 app.use(flash());
 
-// Global var
-app.use(function(req, res, next) {
-	res.locals.success_msg 	= req.flash("success_msg");
-	res.locals.error_msg 	= req.flash("error_msg");
-	res.locals.error 		= req.flash("error");
-	next();
-});
-
-// setting up for static resources in public folder
-app.use(express.static(path.join(__dirname, 'public')));
-
-// CORS is not required as this is no longer a REST API
-
 // Routes
-app.use('/', indexRouter);
+app.use('/index', indexRouter);
 app.use('/housekeepers', housekeeperRoutes);
 app.use('/users', userRoutes);
+app.use('/profile', (req, res, next) => {
+	res.render('profile', {
+		housekeepers: [{
+			_id:				"012345",
+			serviceType:		1,
+			firstName:			"Whatever",
+			lastName:			"Goes",
+			gender:				"Female",
+			liveIn:				"Yes",
+			noOfHoursCanWork: 	8,
+			housekeeperAge:		34,
+			nativePlace:		"Somewhere I belong",
+			location:			"Here",
+			verifiedDocs:		['Aadhar', 'Voter\'s ID Card'],
+			languages:			['Hindi', 'Japanese', 'English'],
+			cleaningService:	{
+				bathroomCleaning:		true,
+				clothesIroning:			true,
+				clothesWashingHand:		true,
+				clothesWashingMachine:	true,
+				dusting:				true,
+				floorCleaning:			true,
+				groceryShopping:		true,
+				utensilCleaning:		true
+			},
+			experience:			{
+				years:			8,
+				description:	["Worked here","Worked there", "Worked Everywhere"],
+			},
+			picture:	'https://www.gravatar.com/avatar/'+crypto.createHash('md5').update(Math.random().toString(36).substring(7)).digest('hex')+'?s=200&d=robohash'
+		},
+		{
+			_id:				"012346",
+			serviceType:		3,
+			firstName:			"Monkey D.",
+			lastName:			"Luffy",
+			gender:				"Male",
+			liveIn:				"Yes",
+			noOfHoursCanWork: 	8,
+			housekeeperAge:		20,
+			nativePlace:		"Foosha Village",
+			location:			"New World",
+			verifiedDocs:		['Aadhar', 'Voter\'s ID Card'],
+			languages:			['Japanese', 'Engrish'],
+			cleaningService:	{
+				bathroomCleaning:		true,
+				clothesIroning:			true,
+				clothesWashingHand:		true,
+				dusting:				true,
+				floorCleaning:			true,
+				groceryShopping:		true,
+				utensilCleaning:		true
+			},
+			cookingService: {
+				nonVeg:				true,
+				breakFast:			true,
+				lunch:				true,
+				dinner:				true,
+				foodPreference:		"whatever",
+				threeBestDishes:	["niku","niku","niku"]
+			},
+			experience:			{
+				years:			4,
+				description:	["Worked as captain of pirate crew on Mary Go","Worked as captain of pirate crew on Thousand Sunny"],
+			},
+
+			picture:	'https://www.gravatar.com/avatar/'+crypto.createHash('md5').update(Math.random().toString(36).substring(7)).digest('hex')+'?s=200&d=robohash'
+		}],
+		user: req.session.user
+	});
+});
 app.use('/bookings', bookingRoutes);
 app.use('/requirements', requirementRoutes);
+app.use('/', indexRouter);
 
 // Error Handling Code
 // Not Found Errors
-app.use((req, res, next) => {
-	const err 	= new Error("Not Found");
-	err.status 	= 404;
-	next(err);
-});
-
-// Server Errors
-app.use((err, req, res, next) => {
-	res.status(err.status || 500);
-	res.json({
-		error: {
-			message: err.message
-		}
-	});
-});
+app.use(errorController.get404);
 
 module.exports = app;
+// This is a test

@@ -3,8 +3,7 @@ const mongoose 	= require('mongoose')
 	, Schema 	= mongoose.Schema;
 
 //const userSchema = new Schema({
-//	firstName: {type:String, required: [true, "Can't be blank"]},
-//	lastName: {type:String, required: [true, "Can't be blank"]},
+//	name: {type:String, required: [true, "Can't be blank"]},
 //	email: {
 //		type: String, 
 //		required: [true, "Can't be blank"],
@@ -14,6 +13,8 @@ const mongoose 	= require('mongoose')
 //	Address: String,
 //	phoneNo: String,
 //	password: String,
+//  resetToken: String,
+//  resetTokenExpiration: Date,
 //	permissionLevel: Number
 //});
 
@@ -21,7 +22,9 @@ const mongoose 	= require('mongoose')
 const userSchema = new Schema({
 	name: {type:String, required: [true, "Can't be blank"]},
 	email: {type:String, required: [true, "Can't be blank"]},
-	password: {type:String, required: [true, "Can't be blank"]}
+	password: {type:String, required: [true, "Can't be blank"]},
+	resetToken: String,
+	resetTokenExpiration: Date
 });
 
 userSchema.pre('save', function(next) {
@@ -35,12 +38,5 @@ userSchema.pre('save', function(next) {
 		});
 	});
 });
-
-userSchema.methods.comparePassword = function(userPassword) {
-	return bcrypt.compareSync(userPassword, this.password, (err, isMatch) => {
-		if(err) throw err;
-		return isMatch;
-	});
-};
 
 module.exports  = mongoose.model('User', userSchema);

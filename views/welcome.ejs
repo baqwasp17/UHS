@@ -1,176 +1,4 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-<head>
-    <title>UHS</title>
-    <meta charset="utf-8">
-    <!--[if IE]>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <![endif]-->
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/main.css" id="color-switcher-link">
-    <link rel="stylesheet" href="/css/animations.css">
-    <link rel="stylesheet" href="/css/fonts.css">
-    <script src="/js/vendor/modernizr-2.6.2.min.js"></script>
-
-    <!--[if lt IE 9]>
-        <script src="/js/vendor/html5shiv.min.js"></script>
-        <script src="/js/vendor/respond.min.js"></script>
-    <![endif]-->
-    
-    <script>
-        function validateForm() {
-   			 var x = document.forms["myForm"]["searchzip"].value;
-   			 postalCodeRegex = /^([0-9]{5})(?:[-\s]*([0-9]{4}))?$/;
-   			 if (x==null || x=="") {
-        alert("First name must be filled out");
-        return false;
-    }
-    if (!x.match(postalCodeRegex)){
-        alert("Please enter valid zipcode");
-        return false;
-    }
-        
-}
-        </script>
-
-</head>
-<body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-
-<!-- login modal -->
-
-<div class="modal fade order-modal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-sm">
-        <div class="modal-content">
-            <div class="modal-header">
-                 <h4 class="modal-title" id="loginModalLabel">Log<span class="highlight"> In</span></h4>
-            </div>
-            <form role="form" action="/postLogin" method="post">
-                <div class="modal-body">
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="email" id="email" placeholder="Email">
-                        </div>
-                        <div class="form-group">
-                            <input type="password" class="form-control" name="password" id="password" placeholder="Password">
-                        </div>                       
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="theme_button"><i class="rt-icon-ok"></i> Login</button>
-                    <a href="/" class="theme_button" data-dismiss="modal"><i class="rt-icon-times"></i> Cancel</a>
-                </div>            
-            </form>
-        </div>
-    </div>
-</div>
-
-
-<div id="box_wrapper">
-
-
-    <section id="topline" class="light_section table_section">
-         <div class="container">
-            <div class="row">
-                <div class="col-sm-3">
-                    <a href="/" class="navbar-brand"><img src="example/logo.png" alt=""> Clean<span>Zen</span></a>
-                    
-                </div>
-                
-
-    
-                <div class="col-sm-9 text-right">
-                <span>
-                  <%if(name!==null){%>
-    				<p style="font-weight:">Hi  <%=name%>!  <a href="/logout" style="cursor:pointer; color:blue">Logout</a>  <a href="/myhome" style="cursor:pointer; color:green">My UHS</a></p>
-   				 <%}%>
-                    </span>
-                    <span>
-                        <i class="fa fa-envelope-o"></i> <a href="mailto:info@company.net">info@cleanzen.net</a>
-                    </span>
-                    <span>
-                        <i class="fa fa-phone"></i> +1 (669)300-1234
-                    </span>
-                    <span>
-                        <a href="#" class="theme_button btn-sm" data-toggle="modal" data-target=".order-modal"><i class="rt-icon-pen-alt-stroke"></i> Login!</a>
-                    </span>
-                     <span>
-                        <a href="register" class="theme_button btn-sm">Register</a>
-                    </span>
-                </div>
-                
-            </div>
-        </div>
-    </section>
-
-
-    <header id="header">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <div>
-                        <span id="toggle_mobile_menu"></span>
-                        <span id="toggle_search"></span>
-                        <div class="widget widget_search">
-                            <form name="myForm" method="get" role="search" id="searchform" class="searchform form-inline" action="quote" onsubmit="return validateForm();">
-                                <div class="form-group">
-                                    <label class="screen-reader-text" for="search">Search for:</label>
-                                    <input type="text" value="" name="searchzip" id="search" class="form-control" placeholder="ZipCode">
-                                </div>
-                                <button type="submit" id="searchsubmit" class="theme_button">Search</button>
-                            </form>
-                        </div>
-                        <nav id="mainmenu_wrapper">
-                            <ul id="mainmenu" class="nav sf-menu">
-                                <li class="active">
-                                    <a href="index">Home</a>
-                                </li>
-                                <li>
-                                    <a href="#info">About</a>
-                                </li>
-                                <li>
-                                    <a href="#service">Services</a>
-                                </li>
-                                <li>
-                                    <a href="#prices">Prices</a>
-                                </li>
-                                <li>
-                                    <a href="quote">BookNow</a>
-                                </li>
-                                <li>
-                                    <a href="comingsoon">CleaningTips</a>
-                                </li>
-                                                                
-                                <li>
-                                    <a href="blog">Blog</a>
-                                </li>
-                                <li>
-                                    <a href="analysis">Analysis</a>
-                                </li>
-                                <li>
-                                    <a href="videos">Videos</a>
-                                </li>
-                                <li>
-                                    <a href="contact">Contact</a>
-                                </li>
-                            </ul>  
-                        </nav>
-                    </div>
-                
-                </div>
-            </div>
-        </div>
-    </header>
-
-
+<% layout('layout') -%>
     <section id="mainslider" class="light_section">
         <div class="flexslider">
             <ul class="slides">
@@ -180,7 +8,7 @@
                         <div class="slide_description">
                             <p data-animation="fadeInLeft">Cleaning And Housekeeping</p>
                             
-                            <h3 data-animation="fadeInLeft">We Working</h3>
+                            <h3 data-animation="fadeInLeft">We Work</h3>
                             
                             <h3 data-animation="fadeInLeft">While <span class="highlight">You</span> Rest</h3>
 
@@ -194,10 +22,11 @@
                     <div class="slide_description_wrapper">
                         <div class="slide_description">
                             <p data-animation="fadeInLeft">Cleaning And Housekeeping</p>
+
+                            <h3 data-animation="fadeInLeft">Let Us Fulfill Your</h3>
                             
-                            <h3 data-animation="fadeInLeft">Let Us Clean</h3>
-                            
-                            <h3 data-animation="fadeInLeft"><span class="highlight">Your Premises</span></h3>
+                            <h3 data-animation="fadeInLeft"><span class="highlight">Housekeeping </span></h3>
+                            <h3 data-animation="fadeInLeft"><span class="highlight">Requirements </span></h3>
 
                             <p><a class="theme_button" href="services">All Services</a></p>
                             
@@ -217,9 +46,9 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12 text-center">
-                <h2 class="section_header to_animate">Book Trusted Home Cleaners in just<span class="highlight">60 seconds</span></h2>
-                <p class="to_animate">You do the relaxing � we'll do the cleaning</p>
-                <p>UHS is a professional housekeeping company that provides house cleaning services throughout the country that specializes in cleaning for health. Our deep cleaning system, products and extensive industry experience lets us make your house cleaner and healthier than ever before, providing a safer environment than any residential cleaning service. Our 22-Step Healthy Touch� Deep Cleaning System, along with our four-person cleaning teams, environmentally preferred products, state-of-the-art equipment and unique cleaning process provide customers an affordable line of unmatchable home cleaning services. The Maids is the best cleaning team in the residential house cleaning industry.</p>
+                <h2 class="section_header to_animate">Book Trusted Home Housekeepers in just <span class="highlight">60 seconds</span></h2>
+                <p class="to_animate">You do the relaxing � we'll do the work</p>
+                <p>    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
         </div>
         <div class="row">
@@ -232,7 +61,7 @@
                     </div>
                     <div class="teaser_description">
                         <h3>House<span class="highlight"> Keeping</span></h3>
-                        <p>UHS is your place to find quality housekeepers/maids to care for all your cleaning needs. Depending on the size of your home we can provide you with either one or two housekeepers/maids to perform the cleaning.</p>
+                        <p>    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                         <p><a href="services" class="theme_button">Know More</a></p>
                     </div>
                 </div>
@@ -247,7 +76,7 @@
                     </div>
                     <div class="teaser_description">
                         <h3>Office <span class="highlight">CleanUp</span></h3>
-                        <p>Your customers, tenants and employees deserve only the best when they come to your office. Jani-King is the global leader in the commercial cleaning industry and stops at nothing to deliver unrivaled office cleaning, business cleaning and building maintenance services to the people who matter most in your business.</p>
+                        <p>    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
                         <p><a href="services" class="theme_button">Know More</a></p>
                     </div>
                 </div>
@@ -262,7 +91,7 @@
                     </div>
                     <div class="teaser_description">
                         <h3>Why <span class="highlight">UHS</span></h3>
-                        <p>Finding a great cleaning company can be diffcult. We are here to make it simple.</p>
+                        <p>    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
                         <p><b>Our favorite reason? We actually care about all of our clients.</b></p>
                         <p><a href="services" class="theme_button">Know More</a></p>
                     </div>
@@ -284,15 +113,15 @@
         </div>
         <div class="row">
             <div class="col-md-4">
-                <h3 class="icon-header text-right to_animate" data-animation="fadeInLeft">Green Products</i></h3>
-                <h3 class="icon-header text-right to_animate" data-animation="fadeInLeft">Fully Equipped Teams</i></h3>
+                <h3 class="icon-header text-right to_animate" data-animation="fadeInLeft">24x7 Customer Support</h3>
+                <h3 class="icon-header text-right to_animate" data-animation="fadeInLeft">Resonable Prices</h3>
                 <h3 class="icon-header text-right to_animate" data-animation="fadeInLeft">Safe and Insured</i></h3>
             </div>
 
             <div class="col-md-4 col-md-push-4">
                 <h3 class="icon-header to_animate" data-animation="fadeInRight"></i> Flexible Availability</h3>
                 <h3 class="icon-header to_animate" data-animation="fadeInRight"></i> Up to 20% discount for regular services</h3>
-                <h3 class="icon-header to_animate" data-animation="fadeInRight"></i> Industry Experts</h3>
+                <h3 class="icon-header to_animate" data-animation="fadeInRight"></i> Professionaly Trained Maids and Housekeepers</h3>
             </div>
 
             <div class="col-md-4 col-md-pull-4 features_image to_animate" data-animation="slideUp">
@@ -305,105 +134,6 @@
 </section>
 
 
-<section id="prices" class="grey_section">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12 text-center to_animate">
-                <h2 class="section_header">
-                    <span class="highlight"><i class="fa fa-money"></i></span>
-                     Our Prices
-                 </h2>
-                <p>Check our attractive pricing plans!</p>
-            </div>
-            
-        </div>
-        <div class="row">
-            
-            <div class="col-md-3 col-sm-6 to_animate" data-animation="fadeInRight">
-                <ul class="price-table style2">
-                    <li class="plan-name"><h3>Single Clean</h3></li>
-                    <li class="plan-price">
-                        <span>$</span>
-                        <span>89</span> 
-                    </li>
-                    <li class="features-list">
-                        <ul>
-                            <li class="enabled">Full 22 Point Check</li>
-                            <li class="enabled">Bedrooms&Living Spaces</li>
-                            <li class="enabled">Bathrooms$TubSpaces</li>
-                            <li class="disabled">Kitchen</li>
-                            <li class="disabled">Complementary Fridge Cleaning</li>
-                        </ul>
-                    </li>
-                    <li class="call-to-action"><a href="register" class="theme_button">Sign Up Now</a></li>
-                </ul>
-            </div>
-
-            <div class="col-md-3 col-sm-6 to_animate" data-animation="fadeInRight">
-                <ul class="price-table style1">
-                    <li class="plan-name"><h3>Week Clean</h3></li>
-                    <li class="plan-price">
-                        <span>$</span>
-                        <span>149</span> 
-                    </li>
-                    <li class="features-list">
-                        <ul>
-                            <li class="enabled">Full 22 Point Check</li>
-                            <li class="enabled">Bedrooms&Living Spaces</li>
-                            <li class="enabled">Bathrooms$TubSpaces</li>
-                            <li class="enabled">Kitchen</li>
-                            <li class="disabled">Complementary Fridge Cleaning</li>
-                        </ul>
-                    </li>
-                    <li class="call-to-action"><a href="register" class="theme_button">Sign Up Now</a></li>
-                </ul>
-            </div>
-
-            <div class="col-md-3 col-sm-6 to_animate" data-animation="fadeInRight">
-                <ul class="price-table style1">
-                    <li class="plan-name"><h3>Monthly Clean</h3></li>
-                    <li class="plan-price">
-                        <span>$</span>
-                        <span>349</span> 
-                    </li>
-                    <li class="features-list">
-                        <ul>
-							<li class="enabled">Full 32 Point Check</li>
-                            <li class="enabled">Bedrooms&Living Spaces</li>
-                            <li class="enabled">Bathrooms$TubSpaces</li>
-                            <li class="enabled">Kitchen</li>
-                            <li class="enabled">All Appliace Cleaning</li>
-                        </ul>
-                    </li>
-                    <li class="call-to-action"><a href="register" class="theme_button">Sign Up Now</a></li>
-                </ul>
-            </div>            
-
-            <div class="col-md-3 col-sm-6 to_animate" data-animation="fadeInRight">
-                <ul class="price-table style1">
-                    <li class="plan-name"><h3>Yearly Clean</h3></li>
-                    <li class="plan-price">
-                        <span>$</span>
-                        <span>1999</span> 
-                    </li>
-                    <li class="features-list">
-                        <ul>
-                            <li class="enabled">Full 32 Point Check</li>
-                            <li class="enabled">Bedrooms&Living Spaces</li>
-                            <li class="enabled">Bathrooms$TubSpaces</li>
-                            <li class="enabled">Full House Cleaning</li>
-                            <li class="enabled">Interior Decoration</li>
-                        </ul>
-                    </li>
-                    <li class="call-to-action"><a href="register" class="theme_button">Sign Up Now</a></li>
-                </ul>
-            </div>
-
-                
-            
-        </div>
-    </div>
-</section>
 
 <section id="partners" class="light_section">
     <div class="container">
@@ -427,7 +157,7 @@
                         <div class="item active">
                             <div class="media">
                                 <a class="pull-left" href="#">
-                                    <img class="media-object" src="example/team/01.jpg" alt="">
+                                    <img class="media-object" src="https://gravatar.com/avatar/84899ad7807dd0cda240ae13d0459663?s=200&d=mp" alt="">
                                 </a>
                                 <div class="media-body">
                                     <h4>Jhon Smith</h4>
@@ -451,7 +181,7 @@
                         <div class="item">
                             <div class="media">
                                 <a class="pull-left" href="#">
-                                    <img class="media-object" src="example/team/02.jpg" alt="">
+                                    <img class="media-object" src="https://gravatar.com/avatar/84899ad7807dd0cda240ae13d0459663?s=200&d=mp" alt="">
                                 </a>
                                 <div class="media-body">
                                     <h4>Amy S.</h4>
@@ -475,7 +205,7 @@
                         <div class="item">
                             <div class="media">
                                 <a class="pull-left" href="#">
-                                    <img class="media-object" src="example/team/03.jpg" alt="">
+                                    <img class="media-object" src="https://gravatar.com/avatar/84899ad7807dd0cda240ae13d0459663?s=200&d=mp" alt="">
                                 </a>
                                 <div class="media-body">
                                     <h4>Eric N.</h4>
@@ -580,12 +310,7 @@
             <div class="col-sm-6 to_animate" data-animation="fadeIn">
                 <div class="widget widget_text">
                     <h3>Why To Choose Us?</h3>
-                    <p><span class="highlight"><i class="rt-icon-like"></i></span>
-                    UHS is the only residential cleaning company to clean for health using the company’s exclusive 22-Step Healthy Touch ® Deep Cleaning System. 
-                    This unique cleaning method sets us apart from other cleaning companies. We provide customers with cleaner, healthier homes through using environmentally preferable cleaning products, a strategic, methodic cleaning approach and state-of-the-art equipment, 
-                    including our patented back pack vacuum with HEPA filtration that can capture up to 99 percent of all dust, allergens, bacteria, pet dander, pollen and other pollutants.
-                                       
-                    </p>
+                    <p>    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                      
 
                 </div>
@@ -633,125 +358,3 @@
         </div>
     </div>
 </section>
-
-
-    <footer id="footer" class="grey_section">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-md-3 col-sm-6 to_animate">
-                    <div class="widget widget_flickr">
-                        <h3 class="widget-title">Flickr Widget</h3>
-                        <ul id="flickr"></ul>
-                    </div>
-                </div>
-
-                <div class="col-md-3 col-sm-6 to_animate">
-
-                    <div class="widget widget_twitter">
-                        <h3 class="widget-title">Twitter Widget</h3>
-                        <div class="twitter"></div>
-                    </div>
-
-                </div>
-                    
-                    
-                
-                <div class="col-md-3 col-sm-6 to_animate">
-                    <div class="widget widget_mailchimp">
-                        <h3 class="widget-title">Subscribe</h3>
-                        <p>Please, subscribe to our latest news to be updated.</p>
-                        <form id="signup" action="/" method="get" class="form-inline">
-                            <div class="form-group">
-                                <input name="email" id="mailchimp_email" type="email" class="form-control" placeholder="your@email.com">
-                            </div>
-                            <button type="submit" class="theme_button">Send</button>
-                            <div id="response"></div>
-                        </form>
-                    </div>
-
-                </div>
-
-
-                <div class="col-md-3 col-sm-6 to_animate">
-                    <div class="widget widget_text">
-                        <h3 class="widget-title">Company Info</h3>
-                        <p>UHS is the most trusted name among residential cleaning companies because we consistently deliver value through quality service and premium products that meet or exceed our customers’ expectations.</p>
-                        <p> All of this accentuates why we are a top cleaning company. </p>
-                        <p>
-                            <a class="socialico-facebook" href="#" title="Facebook" data-toggle="tooltip">#</a>
-                            <a class="socialico-twitter" href="#" title="Twitter" data-toggle="tooltip">#</a>
-                            <a class="socialico-google" href="#" title="Google" data-toggle="tooltip">#</a>
-                        </p>
-                    </div>
-                </div>
-                    
-                    
-                
-            
-            </div>
-        </div>
-    </footer>
-
-
-    <section id="copyright" class="light_section">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12 text-center">
-                    <p>&copy; Copyright 2014 - <strong>UHS</strong></p>
-                </div>
-                               
-            </div>
-        </div>
-    </section>
- 
-
-</div><!-- eof #box_wrapper -->
-
-<div class="preloader">
-    <div class="preloader_image"></div>
-</div>
-
-
-        <!-- libraries -->
-        <script src="/js/vendor/jquery-1.11.1.min.js"></script>
-        <script src="/js/vendor/bootstrap.min.js"></script>
-        <script src="/js/vendor/jquery.appear.js"></script>
-
-        <!-- superfish menu  -->
-        <script src="/js/vendor/jquery.hoverIntent.js"></script>
-        <script src="/js/vendor/superfish.js"></script>
-        
-        <!-- page scrolling -->
-        <script src="/js/vendor/jquery.easing.1.3.js"></script>
-        <script src='/js/vendor/jquery.nicescroll.min.js'></script>
-        <script src="/js/vendor/jquery.ui.totop.js"></script>
-        <script src="/js/vendor/jquery.localscroll-min.js"></script>
-        <script src="/js/vendor/jquery.scrollTo-min.js"></script>
-        <script src='/js/vendor/jquery.parallax-1.1.3.js'></script>
-
-        <!-- widgets -->
-        <script src="/js/vendor/jquery.easypiechart.min.js"></script><!-- pie charts -->
-        <script src='/js/vendor/jquery.countTo.js'></script><!-- digits counting -->
-        <script src="/js/vendor/jquery.prettyPhoto.js"></script><!-- lightbox photos -->
-        <script src='/js/vendor/jquery.plugin.min.js'></script><!-- plugin creator for comingsoon counter -->
-        <script src='/js/vendor/jquery.countdown.js'></script><!-- coming soon counter -->        
-        <script src="/js/vendor/jquery.elevateZoom-3.0.8.min.js"></script><!-- zoom images -->
-        <script src='/js/vendor/jflickrfeed.min.js'></script><!-- flickr -->
-        <script src='twitter/jquery.tweet.min.js'></script><!-- twitter -->
-
-        <!-- sliders, filters, carousels -->
-        <script src="/js/vendor/jquery.isotope.min.js"></script>
-        <script src='/js/vendor/owl.carousel.min.js'></script>
-        <script src='/js/vendor/jquery.fractionslider.min.js'></script>
-        <script src='/js/vendor/jquery.flexslider-min.js'></script>
-        <script src='/js/vendor/jquery.bxslider.min.js'></script>
-
-        <!-- custom scripts -->
-        <script src="/js/plugins.js"></script>
-        <script src="/js/main.js"></script>
-        
-        
-
-    </body>
-</html>

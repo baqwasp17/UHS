@@ -1,8 +1,9 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const router = express.Router();
+const express 		= require('express');
+const mongoose 		= require('mongoose');
+const authenticate 	= require('../middleware/Auth.js')
+const router 		= express.Router();
 
-const Housekeeper = require('../models/Housekeeper.model');
+const Housekeeper 	= require('../models/Housekeeper.model.js');
 
 router.get("/", (req, res, next) => {
 	res.status(200).json({
@@ -11,7 +12,7 @@ router.get("/", (req, res, next) => {
 });
 
 /*PROTECTED*/
-router.post("/", (req, res, next) => {
+router.post("/", authenticate, (req, res, next) => {
 	const housekeeper = new Housekeeper({
 		_id: new mongoose.Types.ObjectId(),
 		firstName: req.body.firstName,
@@ -31,7 +32,7 @@ router.post("/", (req, res, next) => {
 });
 
 /*PROTECTED*/
-router.get('/:housekeeperId', (req, res, next) => {
+router.get('/:housekeeperId', authenticate, (req, res, next) => {
 	const id = req.params.housekeeperId;
 	Housekeeper.findById(id)
 	.exec()
@@ -46,14 +47,14 @@ router.get('/:housekeeperId', (req, res, next) => {
 });
 
 /*PROTECTED*/
-router.delete('/:housekeeperId', (rev, res, next) => {
+router.delete('/:housekeeperId', authenticate, (rev, res, next) => {
 	res.status(200).json({
 		message: "Handling DELETE requests to /housekeepers"
 	});
 });
 
 /*PROTECTED*/
-router.patch('/:housekeeperId', (rev, res, next) => {
+router.patch('/:housekeeperId', authenticate, (rev, res, next) => {
 	res.status(200).json({
 		message: "Handling PATCH requests to /housekeepers"
 	});

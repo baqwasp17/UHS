@@ -1,0 +1,400 @@
+<link href="/css/CssMini2.css" rel="stylesheet" type="text/css">
+<link href="/css/StyleSheet2.css" rel="stylesheet" type="text/css">
+
+<body><div class="global">
+	
+	<%for(var n = 0; n < 10; n++) {%>
+	<%for(var i in housekeepers) {%>
+	<% var hk = housekeepers[i]%>
+	<% var servType = [];%>
+	
+	<% if(hk.serviceType & 1) {%>
+	<% servType.push("Cleaner");%>
+	<% }%>
+	
+	<% if(hk.serviceType & 2) {%> 
+	<% servType.push("Cook");%>
+	<% }%>
+	
+	<% if(hk.serviceType & 4) {%>
+	<% servType.push("Baby Sitter");%>
+	<% }%>
+	
+	<% if(hk.serviceType & 8) {%> 
+	<% servType.push("Elderly Care");%>
+	<% }%>
+	<div class="list-iteme">
+	                <div class="list-imgdiv">
+	
+	<div class="list-imgshow">
+	<img src="<%=hk.picture%>" title="Video" data-shortlist="130694">
+	</div>
+	<div class="img-nav">
+	</div>
+	
+	                    <p class="list-btns">
+	                        <a href="#" class="btn_auto btn_preview" data-pop-id="<%=hk._id%>">
+	                            View Details</a> <a href="#" id="btn_Shortlist" class="btn_Shortlist btn_auto" rel="130694">Shortlist</a>
+	                    </p>
+	
+	                    <p style="display: none;">
+	                        <span><i><img src="/images/white-icon1.png"></i> Cleaner</span> <span><i><img src="/images/white-icon2.png"></i> Cook</span> <span><i><img src="/images/white-icon3.png"></i> Baby Sitter / Nanny</span> <span><i><img src="/images/white-icon4.png"></i> Elderly Care</span></p>
+	
+	                </div>
+	                <div class="list-textdiv">
+	                    <h3>
+	                        <a href="#" class="btn_preview" data-id="<%=hk._id%>">
+							<%=hk.firstName%> <%=hk.lastName%></a>
+	                    </h3>
+	                    <p class="list-Experiance"><small><i><img src="/images/location_icon.png"></i><b>Location</b><span><%=hk.location%></span></small><small><b>Experience</b><span><%=hk.experience.years%> Year(s)</span></small><small><i><img src="/images/religion-icon.png"></i><b>Religion</b><span><%=hk.religion%></span></small><small><i><img src="/images/age-icon.png"></i><b>Age</b><span><%=hk.housekeeperAge%></span></small></p>
+	                </div>
+	                <p class="list-btns mobi">
+	                    <a href="#" class="btn_auto btn_preview" data-id="<%=hk._id%>">
+	                        View Details</a> <a href="#" id="hyp_Shortlist" class="btn_Shortlist btn_auto" rel="130694">Shortlist</a>
+	                </p>
+	                <div class="list-infodiv">
+	                    <input type="hidden" name="ctl00$cp_Main$rpt_Candidates$ctl00$hf_CandidateID" id="hf_CandidateID" value="130694">
+	
+	<%if(hk.serviceType & 1) {%>
+	<div class="list-specialitiesdiv"><big><img src="/images/icon1.png"> Cleaning</big> <p>
+	<%if(hk.cleaningService.bathroomCleaning) {%>
+	<span><img src="/images/Bathroom-Cleaning-icon.png"><b>Bathroom Cleaning</b></span>
+	<% }%>
+	<%if(hk.cleaningService.clothesIroning) {%>
+	<span><img src="/images/Clothes-Ironing-icon.png"><b>Clothes Ironing</b></span>
+	<% }%>
+	<%if(hk.cleaningService.clothesWashingMachine) {%>
+	<span><img src="/images/Clothes-Washing-(With-Washing-Machine)-icon.png"><b>Clothes Washing (With Washing Machine)</b></span>
+	<% }%>
+	<%if(hk.cleaningService.clothesWashingHand) {%>
+	<span><img src="/images/Clothes-Washing-(Without-Washing-Machine)-icon.png"><b>Clothes Washing (With Hand)</b></span>
+	<% }%>
+	<%if(hk.cleaningService.dusting) {%>
+	<span><img src="/images/Dusting-icon.png"><b>Dusting</b></span>
+	<% }%>
+	<%if(hk.cleaningService.floorCleaning) {%>
+	<span><img src="/images/Floor-Cleaning-icon.png"><b>Floor Cleaning</b></span>
+	<% }%>
+	<%if(hk.cleaningService.groceryShopping) {%>
+	<span><img src="/images/Grocery-Shopping-icon.png"><b>Grocery Shopping</b></span>
+	<% }%>
+	<%if(hk.cleaningService.utensilCleaning) {%>
+	<span><img src="/images/Utensil-Cleaning-icon.png"><b>Utensil Cleaning</b></span>
+	<% }%>
+	</p></div>
+	<% }%>
+	
+	<%if(hk.serviceType & 2) {%>
+	<div class="profile-specialitiesdiv list-specialitiesdiv"> <big><img src="/images/icon2.png"> Cooking</big>
+	<p>
+	<%if(hk.cookingService.veg) {%>
+	<span><img src="/images/Veg-icon.png"><b>Veg</b></span>
+	<% }%>
+	<%if(hk.cookingService.nonVeg) {%>
+	<span><img src="/images/Non-Veg-icon.png"><b>Non Veg</b></span>
+	<% }%>
+	<%if(hk.cookingService.foodPrefrence) {%>
+	<span><img src="/images/cuisine-icon.png"><b><%=hk.cookingService.foodPrefrence%></b></span>
+	<% }%>
+	</p>
+	<%if(hk.cookingService.threeBestDishes)%>
+	<div class="cuisinediv">
+	<table>
+	<tbody>
+	<tr>
+	<%for(var x in hk.cookingService.threeBestDishes) {%>
+	<td valign="middle"><small><img src="/images/cuisine-icon.png"> <%=hk.cookingService.threeBestDishes[x]%></small></td>
+	<%}%>
+	</tr>
+	</tbody>
+	</table>
+	</div>
+	</div>
+	<% }%>
+	
+	<%if(hk.serviceType & 4) {%>
+	<div class="list-specialitiesdiv"><big><img src="/images/icon3.png"> Baby Sitter / Nanny</big> <p>
+	<%if(hk.babySittingService.changeingDiaper) {%>
+	<span><img src="/images/Changing-Diaper-icon.png"><b>Changing Diaper</b></span>
+	<% }%>
+	<%if(hk.babySittingService.cleaningUtensilsOfBaby) {%>
+	<span><img src="/images/Cleaning-Utensils-of-Baby-icon.png"><b>Cleaning Utensils of Baby</b></span>
+	<% }%>
+	<%if(hk.babySittingService.feeding) {%>
+	<span><img src="/images/Feeding-icon.png"><b>Feeding</b></span>
+	<% }%>
+	<%if(hk.babySittingService.babyMassage) {%>
+	<span><img src="/images/Baby-Massage-icon.png"><b>Baby Massage</b></span>
+	<% }%>
+	<%if(hk.babySittingService.preparingBabyForSleep) {%>
+	<span><img src="/images/Preparing-Baby-for-Sleep-icon.png"><b>Preparing Baby for Sleep</b></span>
+	<% }%>
+	<%if(hk.babySittingService.takingBabyForAWalk) {%>
+	<span><img src="/images/Taking-Baby-for-a-Walk-icon.png"><b>Taking Baby for a Walk</b></span>
+	<% }%>
+	<%if(hk.babySittingService.motherMassage) {%>
+	<span><img src="/images/Mother-Massage-icon.png"><b>Mother Massage</b></span>
+	<% }%>
+	<%if(hk.babySittingService.preparingBabyFood) {%>
+	<span><img src="/images/Preparing-Baby-Food-icon.png"><b>Preparing Baby Food</b></span>
+	<% }%>
+	<%if(hk.babySittingService.washingBabyClothes) {%>
+	<span><img src="/images/Washing-Baby-Clothes-icon.png"><b>Washing Baby Clothes</b></span>
+	<% }%>
+	<%if(hk.babySittingService.babyBathing) {%>
+	<span><img src="/images/Baby-Bathing-icon.png"><b>Baby Bathing</b></span>
+	<% }%>
+	</p></div>
+	<% }%>
+	
+	<%if(hk.serviceType & 8) {%>
+	<div class="list-specialitiesdiv"><big><img src="/images/icon4.png"> Elderly Care / Patient Care</big> <p>
+	<%if(hk.elderlyCareService.bathingAndSponging & 8) {%>
+	<span><img src="/images/Bathing-Sponging-ico.png"><b>Bathing &amp; Sponging</b></span>
+	<% }%>
+	<%if(hk.elderlyCareService.cleaningUtensilsOfElderly & 8) {%>
+	<span><img src="/images/Cleaning-Utensils-of-Elderly-ico.png"><b>Cleaning Utensils of Elderly</b></span>
+	<% }%>
+	<%if(hk.elderlyCareService.feeding & 8) {%>
+	<span><img src="/images/Feeding-ico.png"><b>Feeding</b></span>
+	<% }%>
+	<%if(hk.elderlyCareService.givingMedicines & 8) {%>
+	<span><img src="/images/Giving-Medicines-ico.png"><b>Giving Medicines</b></span>
+	<% }%>
+	<%if(hk.elderlyCareService.massage & 8) {%>
+	<span><img src="/images/Massage-ico.png"><b>Massage</b></span>
+	<% }%>
+	<%if(hk.elderlyCareService.takingElderlyForAWalk & 8) {%>
+	<span><img src="/images/Taking-Elderly-for-a-Walk-ico.png"><b>Taking Elderly for a Walk</b></span>
+	<% }%>
+	</p></div>
+	<% }%>
+	<!-- popback -->
+	</div>
+	<div class="popback" id="<%=hk._id%>" style="display: none;">
+	<span class="cross popupbg"></span>
+	<div class="search_info">
+	<div class="searchinfo_body">
+	<div class="profile-main" style="position: relative">
+	<span class="cross">
+	<img src="images/delete-icon.png">
+	</span>
+	<div class="profile-imgdiv">
+	<div class="proile-thumb">
+	<img src="<%=hk.picture%>" id="imgCandidate" alt="Bhakti Arun Angane">
+	</div>
+	<ul>
+	<li>
+	<div class="social-Share desk flot-right" rel="">
+		<div class="facebook" rel="130694">
+			<a href="#" id="hyp_FacebookShare">
+				<img src="/images/facebook-white.png"></a>
+		</div>
+		<div class="twitter" rel="130694">
+			<a href="#" id="hyp_TwitterShare">
+				<img src="/images/twitter-white.png"></a>
+		</div>
+		<div class="gplus" rel="130694">
+			<a href="#">
+				<img src="/images/gplus-white.png"></a>
+		</div>
+		<div class="whatsapp" style="display:none">
+			<a href="whatsapp://send" data-text="Take a look at this maid Bhakti Arun Angane on UHS :" data-href="" class="wa_btn wa_btn_m" style="display: block;
+				width: 30px; height: 30px; background-size: 100%; background-position: center;
+				padding: 0; border: 0;"></a>
+		</div>
+		&nbsp;
+	</div>
+	<h3 class="headingtext">
+		<%=hk.firstName%> <%=hk.lastName%></h3>
+	<p class="subheading">
+		<%for(var ser in servType) {%>
+		<span><%=servType[ser]%></span>
+		<% }%>
+	</p>
+	</li>
+	<li>
+	<i><img src="/images/location_icon.png"></i> <b>Location</b> <%=hk.location%></li>
+	</ul>
+	<ul class="commondetailslist">
+	<li><b>Religion</b> <strong><%=hk.religion%></strong></li>
+	<li><p><b>Age </b> <strong><%=hk.housekeeperAge%> Years</strong></p></li>
+	<li><b>No. of hours I can work</b> <strong><%=hk.noOfHoursCanWork%></strong></li>
+	<li><b>Live In</b> <strong><%=hk.liveIn?"Yes":"No"%></strong></li>
+	<li><p><b>Experience</b> <strong><%=hk.experience.years%> Years</strong></p></li>
+	<li><p><b>Native place</b> <strong><%=hk.nativePlace%></strong></p></li>
+	</ul>
+	<ul class="commondetailslist fullwidth">
+	<li><b>Languages</b> <strong><%=hk.languages.join(", ")%></strong></li>
+	
+	<li><p><b>Documents</b>
+	<%for(var doc in hk.verifiedDocs) {%>
+	<strong><%=hk.verifiedDocs[doc]%><i><img src="/images/Tick.gif"></i></strong>
+	<% }%>
+	</p> </li>
+	
+	</ul>
+	</div>
+	<div class="popupscroll">
+	<div class="profile-info">
+	
+	<%if(hk.serviceType & 1) {%>
+	<div class="profile-specialitiesdiv"><big>Can help in cleaning</big> <p>
+	<span class="<%=hk.cleaningService.bathroomCleaning?'active':''%>"><img src="/images/Bathroom-Cleaning-icon.png"><b>Bathroom Cleaning</b> </span>
+	<span class="<%=hk.cleaningService.clothesIroning?'active':''%>"><img src="/images/Clothes-Ironing-icon.png"><b>Clothes Ironing</b> </span>
+	<span class="<%=hk.cleaningService.clothesWashingMachine?'active':''%>"><img src="/images/Clothes-Washing-(With-Washing-Machine)-icon.png"><b>Clothes Washing (With Washing Machine)</b> </span>
+	<span class="<%=hk.cleaningService.clothesWashingHand?'active':''%>"><img src="/images/Clothes-Washing-(Without-Washing-Machine)-icon.png"><b>Clothes Washing (With Hand)</b> </span>
+	<span class="<%=hk.cleaningService.dusting?'active':''%>"><img src="/images/Dusting-icon.png"><b>Dusting</b> </span>
+	<span class="<%=hk.cleaningService.floorCleaning?'active':''%>"><img src="/images/Floor-Cleaning-icon.png"><b>Floor Cleaning</b> </span>
+	<span class="<%=hk.cleaningService.groceryShopping?'active':''%>"><img src="/images/Grocery-Shopping-icon.png"><b>Grocery Shopping</b> </span>
+	<span class="<%=hk.cleaningService.utensilCleaning?'active':''%>"><img src="/images/Utensil-Cleaning-icon.png"><b>Utensil Cleaning</b> </span>
+	</p></div>
+	<% }%>
+	
+	<%if(hk.serviceType & 2) {%>
+	<div class="profile-specialitiesdiv cookdetails"><big>Can help in cooking</big> <table>
+	<caption><big>Type of Food</big></caption>
+	<tbody>
+	<tr>
+	<%if(hk.cookingService.veg) {%>
+	<td valign="middle"><small><i><img src="/images/Veg-icon.png"></i> <b>Veg</b> <strong><img src="/images/Tick.gif"></strong></small> </td>
+	<% }%>
+	<%if(hk.cookingService.nonVeg) {%>
+	<td valign="middle"><small><i><img src="/images/Non-Veg-icon.png"></i> <b>Non Veg</b> <strong><img src="/images/Tick.gif"></strong></small> </td>
+	<% }%>
+	</tr>
+	</tbody>
+	</table>
+	<table>
+	<caption><big>I can cook</big></caption>
+	<tbody>
+	<tr>
+	</tr>
+	</tbody>
+	</table>
+	<table>
+	<caption><big>Three Best dishes</big></caption>
+	<tbody>
+	<tr>
+	<%for(var best in hk.cookingService.threeBestDishes) {%>
+	<td valign="middle"><small><i><img src="/images/cuisine-icon.png"></i><%=hk.cookingService.threeBestDishes[best]%></small></td>
+	<% }%>
+	</tr>
+	</tbody>
+	</table>
+	</div>
+	<% }%>
+	
+	<%if(hk.serviceType & 4) {%>
+	<div class="profile-specialitiesdiv"><big>Can help in Baby sitter / Nanny</big> <p>
+	<span class="<%=hk.babySittingService.changingDiaper?'active':''%>"><img src="/images/Changing-Diaper-icon.png"><b>Changing Diaper</b> </span>
+	<span class="<%=hk.babySittingService.cleaningUtensilsOfBaby?'active':''%>"><img src="/images/Cleaning-Utensils-of-Baby-icon.png"><b>Cleaning Utensils of Baby</b> </span>
+	<span class="<%=hk.babySittingService.feeding?'active':''%>"><img src="/images/Feeding-icon.png"><b>Feeding</b> </span>
+	<span class="<%=hk.babySittingService.babyMassage?'active':''%>"><img src="/images/Baby-Massage-icon.png"><b>Baby Massage</b> </span>
+	<span class="<%=hk.babySittingService.preparingBabyForSleep?'active':''%>"><img src="/images/Preparing-Baby-for-Sleep-icon.png"><b>Preparing Baby for Sleep</b> </span>
+	<span class="<%=hk.babySittingService.takingBabyForAWalk?'active':''%>"><img src="/images/Taking-Baby-for-a-Walk-icon.png"><b>Taking Baby for a Walk</b> </span>
+	<span class="<%=hk.babySittingService.motherMassage?'active':''%>"><img src="/images/Mother-Massage-icon.png"><b>Mother Massage</b></span>
+	<span class="<%=hk.babySittingService.preparingBabyFood?'active':''%>"><img src="/images/Preparing-Baby-Food-icon.png"><b>Preparing Baby Food</b></span>
+	<span class="<%=hk.babySittingService.washingBabyClothes?'active':''%>"><img src="/images/Washing-Baby-Clothes-icon.png"><b>Washing Baby Clothes</b></span>
+	<span class="<%=hk.babySittingService.babyBathing?'active':''%>"><img src="/images/Baby-Bathing-icon.png"><b>Baby Bathing</b></span>
+	</p></div>
+	<% }%>
+	
+	<%if(hk.serviceType & 8) {%>
+	<div class="profile-specialitiesdiv"><big>Can help in elderly care</big>  <p>
+	<span class="<%=hk.elderlyCareService.batingAndSponging?'active':''%>"><img src="/images/Bathing-Sponging-ico.png"><b>Bathing &amp; Sponging</b> </span>
+	<span class="<%=hk.elderlyCareService.cleaningUtensilsOfElderly?'active':''%>"><img src="/images/Cleaning-Utensils-of-Elderly-ico.png"><b>Cleaning Utensils of Elderly</b> </span>
+	<span class="<%=hk.elderlyCareService.feeding?'active':''%>"><img src="/images/Feeding-ico.png"><b>Feeding</b> </span>
+	<span class="<%=hk.elderlyCareService.givingMedicines?'active':''%>"><img src="/images/Giving-Medicines-ico.png"><b>Giving Medicines</b> </span>
+	<span class="<%=hk.elderlyCareService.massage?'active':''%>"><img src="/images/Massage-ico.png"><b>Massage</b> </span>
+	<span class="<%=hk.elderlyCareService.takingElderlyForAWalk?'active':''%>"><img src="/images/Taking-Elderly-for-a-Walk-ico.png"><b>Taking Elderly for a Walk</b> </span>
+	<span class="<%=hk.elderlyCareService.injection?'active':''%>"><img src="/images/Injection-ico.png"><b>Injection</b> </span>
+	<span class="<%=hk.elderlyCareService.chaningDiaper?'active':''%>"><img src="/images/Changing-Diaper-ico.png"><b>Changing Diaper</b> </span>
+	<span class="<%=hk.elderlyCareService.cookingForPatient?'active':''%>"><img src="/images/Cooking-For-Patient-ico.png"><b>Cooking For Patient</b> </span>
+	</p></div>
+	<% }%>
+	
+	
+		<div class="profile-specialitiesdiv">
+			<div class="prfl_tbl">
+				<big>Old work experience</big>
+				<table style="width: 100%">
+					<tbody>
+						<tr>
+							<th width="50%">
+								Details
+							</th>
+	
+						</tr>
+	
+	<%for(var details in hk.experience.description) {%>
+		<tr>
+			<td align="left">
+				<%=hk.experience.description[details]%>
+			</td>
+	
+		</tr>
+	<% }%>
+	
+		</tbody> </table> </div> </div>
+	
+	<div class="profile-specialitiesdiv">
+	<big>Expected Salary and Availability</big>
+	<p>
+		Salary expectation depends on the kind of work the maid needs to do. Once you have shortlisted the maid, we will check the availability and the salary expectation of the maid
+	</p>
+	</div>
+	<div class="social-Share mobi" rel="">
+	<div class="facebook" rel="130694">
+		<a href="#" id="A1">
+			<img src="/images/facebook-white.png"></a>
+	</div>
+	<div class="twitter" rel="130694">
+		<a href="#" id="A2">
+			<img src="/images/twitter-white.png"></a>
+	</div>
+	<div class="gplus" rel="130694">
+		<a href="#">
+			<img src="/images/gplus-white.png"></a>
+	</div>
+	<div class="whatsapp">
+		<a href="whatsapp://send" data-text="" data-href="" class="wa_btn wa_btn_m" style="display: none;
+			width: 30px; height: 30px; background-size: 100%; background-position: center;
+			padding: 0; border: 0;"></a>
+	</div>
+	</div>
+	</div>
+	</div>
+	<div class="profile-content">
+	</div>
+	</div>
+	</div>
+	<div class="search_info popupbtnrow">
+	<p>
+	
+	<a href="#" id="Shortlist_Now" class="btn_Shortlist shortlistlink btn_auto" rel="130694">Shortlist</a></p>
+	</div>
+	</div>
+	</div>
+	</div>
+	<%}%>
+	<%}%>
+	
+	<script src="/js/jquery-1.9.1.min.js" type="text/javascript"></script>
+	<script>
+	$(".btn_preview").click(function(){
+		$('#'+$(this).attr('data-pop-id')).fadeIn();
+		return false;
+	});
+	
+	$(".cross").click(function() {
+		$(this).parents('.popback').fadeOut();
+		return false;
+	});
+	
+	$(document).ready(function() {
+		$('.active').append('<i><img src="/images/Tick.gif"></i>');
+		return false;
+	});
+	</script>
+</div></body>

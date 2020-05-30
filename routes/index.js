@@ -1,17 +1,16 @@
-const express = require('express');
-const router = express.Router();
-const { ensureAuthenticated, forwardAuthenticated } = require('../config/auth');
+const express 			= require('express');
+const router 			= express.Router();
+const authenticate 		= require('../middleware/Auth.js');
+const indexController 	= require('../controllers/Index.controller.js')
 
 // Welcome Page
-router.get('/', forwardAuthenticated,  (req, res, next) => {
-	res.render('welcome', {name: null});
-});
+router.get('/', indexController.getWelcome);
+
+// services temp
+router.get('/services', indexController.getServices);
 
 // Dashboard
-router.get('/dashboard', ensureAuthenticated, (req, res, next) => {
-	res.render('dashboard', {
-		name: req.user.name
-	})
-});
+/*PROTECTED*/
+router.get('/dashboard', authenticate, indexController.getDashboard);
 
 module.exports = router;

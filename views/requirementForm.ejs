@@ -1,0 +1,657 @@
+<% layout('layout') -%>
+<form name="form1" method="post" action="/requirements/postRequirement" id="form1">
+
+      <div class="wraper">
+        <div class="section">
+            <div class="global">
+    <h3 class="headingtext">
+        Few more details about your requirement</h3>
+    <div class="page_menu">
+        <br />
+        <table id="chk_RequirementType" class="chklist_pannel skilspanel requirpageskils" border="0">
+	<tr>
+		<td><input id="chk_RequirementType_0" type="checkbox" value="true" name="cleaningService" /><label for="chk_RequirementType_0"><i>
+                <img src="/images/icon1.png" /></i>Cleaning</label></td>
+	</tr><tr>
+		<td><input id="chk_RequirementType_1" type="checkbox" value="true" name="cookingService" /><label for="chk_RequirementType_1"><i>
+                <img src="/images/icon2.png" /></i>Cooking</label></td>
+	</tr><tr>
+		<td><input id="chk_RequirementType_2" type="checkbox" value="true" name="babySittingService" /><label for="chk_RequirementType_2"><i>
+                <img src="/images/icon3.png" /></i>Baby Sitting</label></td>
+	</tr><tr>
+		<td><input id="chk_RequirementType_3" type="checkbox" value="true" name="elderlyCareService" /><label for="chk_RequirementType_3"><i>
+                <img src="/images/icon4.png" /></i>Elderly Care</label></td>
+	</tr>
+</table>
+        <span id="csv_RequirementType" style="color:Red;visibility:hidden;">» Requirement Type</span>
+    </div>
+    <div class="form" id="ScrollHere">
+        <div class="col-1">
+            <label>
+                <b>Number of hours you need the maid for</b></label>
+            <span id="csv_Hours" style="color:Red;visibility:hidden;">» No of Hours</span>
+        </div>
+        <div id="timeSlotContainer_4Hours" class="timeslotselection col-4">
+            <input id="rd_4Hours" type="radio" name="numberOfHoursDaily" value="4" />
+            <p>
+                4 hours daily</p>
+            <b>
+                Salary- Approx 6000 per month</b>
+        </div>
+        <div id="timeSlotContainer_8Hours" class="timeslotselection col-4">
+            <input id="rd_8Hours" type="radio" name="numberOfHoursDaily" value="8" />
+            <p>
+                8 hours daily</p>
+            <b>
+                Salary- 8000 to 10000 per month</b>
+        </div>
+        <div id="timeSlotContainer_10Hours" class="timeslotselection col-4">
+            <input id="rd_10Hours" type="radio" name="numberOfHoursDaily" value="10" />
+            <p>
+                10 hours daily</p>
+            <b>
+                Salary- 10000 to 12000 per month</b>
+        </div>
+        <div id="timeSlotContainer_24Hours" class="timeslotselection col-4">
+            <input id="rd_24Hours" type="radio" name="numberOfHoursDaily" value="24" />
+            <p>
+                24 hours / Live-in</p>
+            <b>
+                Salary- 15000 or more per month</b>
+        </div>
+        <div id="Container_Members" class="col-4" width="33%" style="display:inline-block">
+            <label>
+                Number of people in the house</label>
+            <select name="numberOfPeople" id="ddl_NoofMembers">
+	<option selected="selected" value="0">-Select No of Members-</option>
+	<option value="1">1</option>
+	<option value="2">2</option>
+	<option value="3">3</option>
+	<option value="4">4</option>
+	<option value="5">5</option>
+	<option value="6">6</option>
+	<option value="7">7</option>
+	<option value="8">8</option>
+	<option value="9">9</option>
+	<option value="10">10</option>
+	<option value="11">11</option>
+	<option value="12">12</option>
+	<option value="13">13</option>
+	<option value="14">14</option>
+	<option value="15">15</option>
+
+</select>
+        </div>
+        <div id="Container_Rooms" class="col-4" width="33%" style="display:none">
+            <label>
+                Size of the house</label>
+            <select name="houseSize" id="ddl_RoomType">
+	<option selected="selected" value="">-Select Room Type-</option>
+	<option value="1">1 BHK</option>
+	<option value="2">2 BHK</option>
+	<option value="3">3 BHK</option>
+	<option value="4">4 BHK</option>
+	<option value="5">5 BHK</option>
+	<option value="6">5+ BHK</option>
+
+</select>
+        </div>
+        <div class="col-4" style="border: 0;">
+            <label>
+                Approx salary you are willing to pay
+                <span id="rfv_RequiermentPostSalary" style="color:Red;display:none;">» Salary</span>
+            </label>
+            <input name="approxSalary" value="" id="txt_Salary" class="PureNumbers" placeholder="Monthly salary" type="number" />
+        </div> 
+        <div class="col-4">
+            <div id="Container_TimeSlots" class="timeslotdiv">
+                <div class="frm_row">
+                    <label>
+                        Time slot preference (If any)
+                    </label>
+                    <div class="frm_collarge">
+                        <table class="frm_tbl">
+                            <tbody>
+                                <tr>
+                                    <td style="width: 45%; border: 0; vertical-align: middle;">
+                                        <select name="ctl00$ContentPlaceHolder1$ddl_FromTimeSlot" id="ddl_FromTimeSlot">
+	<option value="">-Select-</option>
+	<option value="6 AM">6 AM</option>
+	<option value="7 AM">7 AM</option>
+	<option value="8 AM">8 AM</option>
+	<option value="9 AM">9 AM</option>
+	<option value="10 AM">10 AM</option>
+	<option value="11 AM">11 AM</option>
+	<option value="12 PM">12 PM</option>
+	<option value="1 PM">1 PM</option>
+	<option value="2 PM">2 PM</option>
+	<option value="3 PM">3 PM</option>
+	<option value="4 PM">4 PM</option>
+	<option value="5 PM">5 PM</option>
+	<option value="6 PM">6 PM</option>
+	<option value="7 PM">7 PM</option>
+	<option value="8 PM">8 PM</option>
+	<option value="9 PM">9 PM</option>
+	<option value="10 PM">10 PM</option>
+	<option value="11 PM">11 PM</option>
+	<option value="12 AM">12 AM</option>
+	<option value="1 AM">1 AM</option>
+	<option value="2 AM">2 AM</option>
+	<option value="3 AM">3 AM</option>
+	<option value="4 AM">4 AM</option>
+	<option value="5 AM">5 AM</option>
+
+</select>
+                                    </td>
+                                    <td style="width: 10%; text-align: center; border: 0; vertical-align: middle;" valign="middle">
+                                        to
+                                    </td>
+                                    <td style="width: 45%; border: 0; vertical-align: middle;">
+                                        <select name="ctl00$ContentPlaceHolder1$ddl_ToTimeSlot" id="ddl_ToTimeSlot">
+	<option value="">-Select-</option>
+	<option value="6 AM">6 AM</option>
+	<option value="7 AM">7 AM</option>
+	<option value="8 AM">8 AM</option>
+	<option value="9 AM">9 AM</option>
+	<option value="10 AM">10 AM</option>
+	<option value="11 AM">11 AM</option>
+	<option value="12 PM">12 PM</option>
+	<option value="1 PM">1 PM</option>
+	<option value="2 PM">2 PM</option>
+	<option value="3 PM">3 PM</option>
+	<option value="4 PM">4 PM</option>
+	<option value="5 PM">5 PM</option>
+	<option value="6 PM">6 PM</option>
+	<option value="7 PM">7 PM</option>
+	<option value="8 PM">8 PM</option>
+	<option value="9 PM">9 PM</option>
+	<option value="10 PM">10 PM</option>
+	<option value="11 PM">11 PM</option>
+	<option value="12 AM">12 AM</option>
+	<option value="1 AM">1 AM</option>
+	<option value="2 AM">2 AM</option>
+	<option value="3 AM">3 AM</option>
+	<option value="4 AM">4 AM</option>
+	<option value="5 AM">5 AM</option>
+
+</select>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="Container_Services" class="requirmenttypes" style="display:none">
+            <p>
+                Select your needs for cleaner
+            </p>
+            <table id="chk_CleanerServicelist" class="chklist_pannel" border="0">
+	<tr>
+		<td><input id="chk_CleanerServicelist_0" type="checkbox" value="true" name="bathroomCleaning" /><label for="chk_CleanerServicelist_0">Bathroom Cleaning</label></td>
+	</tr><tr>
+		<td><input id="chk_CleanerServicelist_1" type="checkbox" value="true" name="clothesIroning" /><label for="chk_CleanerServicelist_1">Clothes Ironing</label></td>
+	</tr><tr>
+		<td><input id="chk_CleanerServicelist_2" type="checkbox" value="true" name="clothesWashingMachine" /><label for="chk_CleanerServicelist_2">Clothes Washing (With Washing Machine)</label></td>
+	</tr><tr>
+		<td><input id="chk_CleanerServicelist_3" type="checkbox" value="true" name="clothesWashingHand" /><label for="chk_CleanerServicelist_3">Clothes Washing (Without Washing Machine)</label></td>
+	</tr><tr>
+		<td><input id="chk_CleanerServicelist_4" type="checkbox" value="true" name="dusting" /><label for="chk_CleanerServicelist_4">Dusting</label></td>
+	</tr><tr>
+		<td><input id="chk_CleanerServicelist_5" type="checkbox" value="true" name="floorCleaning" /><label for="chk_CleanerServicelist_5">Floor Cleaning</label></td>
+	</tr><tr>
+		<td><input id="chk_CleanerServicelist_6" type="checkbox" value="true" name="groceryShopping" /><label for="chk_CleanerServicelist_6">Grocery Shopping</label></td>
+	</tr><tr>
+		<td><input id="chk_CleanerServicelist_7" type="checkbox" value="true" name="utensilCleaning" /><label for="chk_CleanerServicelist_7">Utensil Cleaning</label></td>
+	</tr>
+</table>
+
+             <div class="col-3" width="98%" style="border: 0; width: 99%;">
+                <label>
+Other Cleaning Services
+                    <input name="ctl00$ContentPlaceHolder1$txt_OtherCleaningServices" type="text" id="txt_OtherCleaningServices" placeholder="Other Cleaning Services" />
+                </label>
+            </div>
+            
+        </div>
+        <div id="Container_Food" class="requirmenttypes" style="display:none">
+            <p>
+                Select your needs for cook
+            </p>
+            <div class="frm_row col-2">
+                <div class="frm_collarge">
+                    <span>Food Type </span>
+                </div>
+                <table id="chk_CookFoodType" class="chklist_pannel" border="0">
+	<tr>
+		<td><input id="chk_CookFoodType_0" type="checkbox" value="true" name="veg" /><label for="chk_CookFoodType_0">Veg</label></td>
+	</tr><tr>
+		<td><input id="chk_CookFoodType_1" type="checkbox" value="true" name="nonVeg" /><label for="chk_CookFoodType_1">Non Veg</label></td>
+	</tr>
+</table>
+            </div>
+            <div class="frm_row col-2">
+                <div class="frm_collarge">
+                    <span>Meal Type </span>
+                </div>
+                <table id="chk_CookMealType" class="chklist_pannel smallone" border="0">
+	<tr>
+		<td><input id="chk_CookMealType_0" type="checkbox" value="true" name="breakFast" /><label for="chk_CookMealType_0">Break Fast</label></td>
+	</tr><tr>
+		<td><input id="chk_CookMealType_1" type="checkbox" value="true" name="lunch" /><label for="chk_CookMealType_1">Lunch</label></td>
+	</tr><tr>
+		<td><input id="chk_CookMealType_2" type="checkbox" value="true" name="dinner" /><label for="chk_CookMealType_2">Dinner</label></td>
+	</tr>
+</table>
+            </div>
+            <div class="col-3" width="98%" style="border: 0; width: 99%;">
+                <label>
+                    Cuisines Preferences
+                    <input name="foodPreference" type="text" id="txt_CuisinePrefs" placeholder="Ex: North-Indian, South-Indian, stc..." />
+                </label>
+            </div>
+        </div>
+        <div id="Container_Baby" class="requirmenttypes" style="display:none">
+            <p>
+                Select your needs for baby sitter
+            </p>
+            <div class="col-2">
+                <div class="frm_collarge">
+                    <span>Age of Baby</span></div>
+                <select name="babyAge" id="ddl_BabyAge">
+	<option selected="selected" value="0">New Born</option>
+	<option value="1">1 Months</option>
+	<option value="2">2 Months</option>
+	<option value="3">3 Months</option>
+	<option value="4">4 Months</option>
+	<option value="5">5 Months</option>
+	<option value="6">6 Months</option>
+	<option value="7">7 Months</option>
+	<option value="8">8 Months</option>
+	<option value="9">9 Months</option>
+	<option value="10">10 Months</option>
+	<option value="11">11 Months</option>
+	<option value="12">12 Months</option>
+	<option value="13">13 Months</option>
+	<option value="14">14 Months</option>
+	<option value="15">15 Months</option>
+	<option value="16">16 Months</option>
+	<option value="17">17 Months</option>
+	<option value="18">18 Months</option>
+	<option value="19">19 Months</option>
+	<option value="20">20 Months</option>
+	<option value="21">21 Months</option>
+	<option value="22">22 Months</option>
+	<option value="23">23 Months</option>
+	<option value="24">24 Months</option>
+	<option value="25">25 Months</option>
+	<option value="26">26 Months</option>
+	<option value="27">27 Months</option>
+	<option value="28">28 Months</option>
+	<option value="29">29 Months</option>
+	<option value="30">30 Months</option>
+	<option value="31">31 Months</option>
+	<option value="32">32 Months</option>
+	<option value="33">33 Months</option>
+	<option value="34">34 Months</option>
+	<option value="35">35 Months</option>
+	<option value="36">36 Months</option>
+	<option value="37">37 Months</option>
+	<option value="38">38 Months</option>
+	<option value="39">39 Months</option>
+	<option value="40">40 Months</option>
+	<option value="41">41 Months</option>
+	<option value="42">42 Months</option>
+	<option value="43">43 Months</option>
+	<option value="44">44 Months</option>
+	<option value="45">45 Months</option>
+	<option value="46">46 Months</option>
+	<option value="47">47 Months</option>
+	<option value="48">48 Months</option>
+	<option value="49">49 Months</option>
+	<option value="50">50 Months</option>
+	<option value="51">51 Months</option>
+	<option value="52">52 Months</option>
+	<option value="53">53 Months</option>
+	<option value="54">54 Months</option>
+	<option value="55">55 Months</option>
+	<option value="56">56 Months</option>
+	<option value="57">57 Months</option>
+	<option value="58">58 Months</option>
+	<option value="59">59 Months</option>
+	<option value="60">60 Months</option>
+	<option value="61">61 Months</option>
+	<option value="62">62 Months</option>
+	<option value="63">63 Months</option>
+	<option value="64">64 Months</option>
+	<option value="65">65 Months</option>
+	<option value="66">66 Months</option>
+	<option value="67">67 Months</option>
+	<option value="68">68 Months</option>
+	<option value="69">69 Months</option>
+	<option value="70">70 Months</option>
+	<option value="71">71 Months</option>
+	<option value="72">72 Months</option>
+	<option value="73">73 Months</option>
+	<option value="74">74 Months</option>
+	<option value="75">75 Months</option>
+	<option value="76">76 Months</option>
+	<option value="77">77 Months</option>
+	<option value="78">78 Months</option>
+	<option value="79">79 Months</option>
+	<option value="80">80 Months</option>
+	<option value="81">81 Months</option>
+	<option value="82">82 Months</option>
+	<option value="83">83 Months</option>
+	<option value="84">84 Months</option>
+	<option value="85">85 Months</option>
+	<option value="86">86 Months</option>
+	<option value="87">87 Months</option>
+	<option value="88">88 Months</option>
+	<option value="89">89 Months</option>
+	<option value="90">90 Months</option>
+	<option value="91">91 Months</option>
+	<option value="92">92 Months</option>
+	<option value="93">93 Months</option>
+	<option value="94">94 Months</option>
+	<option value="95">95 Months</option>
+	<option value="96">96 Months</option>
+	<option value="97">97 Months</option>
+	<option value="98">98 Months</option>
+	<option value="99">99 Months</option>
+	<option value="100">100 Months</option>
+	<option value="101">101 Months</option>
+	<option value="102">102 Months</option>
+	<option value="103">103 Months</option>
+	<option value="104">104 Months</option>
+	<option value="105">105 Months</option>
+	<option value="106">106 Months</option>
+	<option value="107">107 Months</option>
+	<option value="108">108 Months</option>
+	<option value="109">109 Months</option>
+	<option value="110">110 Months</option>
+	<option value="111">111 Months</option>
+	<option value="112">112 Months</option>
+	<option value="113">113 Months</option>
+	<option value="114">114 Months</option>
+	<option value="115">115 Months</option>
+	<option value="116">116 Months</option>
+	<option value="117">117 Months</option>
+	<option value="118">118 Months</option>
+	<option value="119">119 Months</option>
+	<option value="120">120 Months</option>
+
+</select>
+            </div>
+            <div class="col-2">
+                <div class="frm_collarge">
+                    <span>Gender of Baby</span></div>
+                <table id="rd_BabyGender" class="rdo_panel" border="0">
+	<tr>
+		<td><input id="rd_BabyGender_0" type="radio" name="babyGender" value="Male" /><label for="rd_BabyGender_0">Boy</label></td>
+	</tr><tr>
+		<td><input id="rd_BabyGender_1" type="radio" name="babyGender" value="Female" /><label for="rd_BabyGender_1">Girl</label></td>
+	</tr>
+</table>
+            </div>
+            <br />
+            <p>
+                <span><b>Work that she needs to do</b> </span>
+            </p>
+            <div class="col-1">
+                <table id="chk_BabyServicelist" class="chklist_pannel frm_checkbox" border="0">
+	<tr>
+		<td><input id="chk_BabyServicelist_0" type="checkbox" value="true" name="babyBathing" /><label for="chk_BabyServicelist_0">Baby Bathing</label></td>
+	</tr><tr>
+		<td><input id="chk_BabyServicelist_1" type="checkbox" value="true" name="babyMassage" /><label for="chk_BabyServicelist_1">Baby Massage</label></td>
+	</tr><tr>
+		<td><input id="chk_BabyServicelist_2" type="checkbox" value="true" name="changingDiaper" /><label for="chk_BabyServicelist_2">Changing Diaper</label></td>
+	</tr><tr>
+		<td><input id="chk_BabyServicelist_3" type="checkbox" value="true" name="cleaningUtensilsOfBaby" /><label for="chk_BabyServicelist_3">Cleaning Utensils of Baby</label></td>
+	</tr><tr>
+		<td><input id="chk_BabyServicelist_4" type="checkbox" value="true" name="babyFeeding" /><label for="chk_BabyServicelist_4">Feeding</label></td>
+	</tr><tr>
+		<td><input id="chk_BabyServicelist_5" type="checkbox" value="true" name="motherMassage" /><label for="chk_BabyServicelist_5">Mother Massage</label></td>
+	</tr><tr>
+		<td><input id="chk_BabyServicelist_6" type="checkbox" value="true" name="preparingBabyFood" /><label for="chk_BabyServicelist_6">Preparing Baby Food</label></td>
+	</tr><tr>
+		<td><input id="chk_BabyServicelist_7" type="checkbox" value="true" name="preparingBabyForSleep" /><label for="chk_BabyServicelist_7">Preparing Baby for Sleep</label></td>
+	</tr><tr>
+		<td><input id="chk_BabyServicelist_8" type="checkbox" value="true" name="takingBabyForAWalk" /><label for="chk_BabyServicelist_8">Taking Baby for a Walk</label></td>
+	</tr><tr>
+		<td><input id="chk_BabyServicelist_9" type="checkbox" value="true" name="washingBabyClothes" /><label for="chk_BabyServicelist_9">Washing Baby Clothes</label></td>
+	</tr>
+</table>
+
+                 <div class="col-3" width="98%" style="border: 0; width: 99%;">
+                <label>
+Other Baby Sitting Services
+                     <input name="ctl00$ContentPlaceHolder1$txt_OtherBabyServices" type="text" id="txt_OtherBabyServices" placeholder="Other Baby Sitting Services" />
+                </label>
+            </div>
+
+              
+                <br />
+                <br />
+            </div>
+        </div>
+        <div id="Container_Elderly" class="requirmenttypes" style="display:none">
+            <p>
+                Select your needs for elderly care
+            </p>
+            <div class="col-3">
+                <label>
+                    Age of Elderly
+                </label>
+                <select name="elderAge" id="ddl_ElderlyAge">
+	<option selected="selected" value="">-Select Age-</option>
+	<option value="40">40 Years</option>
+	<option value="41">41 Years</option>
+	<option value="42">42 Years</option>
+	<option value="43">43 Years</option>
+	<option value="44">44 Years</option>
+	<option value="45">45 Years</option>
+	<option value="46">46 Years</option>
+	<option value="47">47 Years</option>
+	<option value="48">48 Years</option>
+	<option value="49">49 Years</option>
+	<option value="50">50 Years</option>
+	<option value="51">51 Years</option>
+	<option value="52">52 Years</option>
+	<option value="53">53 Years</option>
+	<option value="54">54 Years</option>
+	<option value="55">55 Years</option>
+	<option value="56">56 Years</option>
+	<option value="57">57 Years</option>
+	<option value="58">58 Years</option>
+	<option value="59">59 Years</option>
+	<option value="60">60 Years</option>
+	<option value="61">61 Years</option>
+	<option value="62">62 Years</option>
+	<option value="63">63 Years</option>
+	<option value="64">64 Years</option>
+	<option value="65">65 Years</option>
+	<option value="66">66 Years</option>
+	<option value="67">67 Years</option>
+	<option value="68">68 Years</option>
+	<option value="69">69 Years</option>
+	<option value="70">70 Years</option>
+	<option value="71">71 Years</option>
+	<option value="72">72 Years</option>
+	<option value="73">73 Years</option>
+	<option value="74">74 Years</option>
+	<option value="75">75 Years</option>
+	<option value="76">76 Years</option>
+	<option value="77">77 Years</option>
+	<option value="78">78 Years</option>
+	<option value="79">79 Years</option>
+	<option value="80">80 Years</option>
+	<option value="81">81 Years</option>
+	<option value="82">82 Years</option>
+	<option value="83">83 Years</option>
+	<option value="84">84 Years</option>
+	<option value="85">85 Years</option>
+	<option value="86">86 Years</option>
+	<option value="87">87 Years</option>
+	<option value="88">88 Years</option>
+	<option value="89">89 Years</option>
+	<option value="90">90 Years</option>
+	<option value="91">91 Years</option>
+	<option value="92">92 Years</option>
+	<option value="93">93 Years</option>
+	<option value="94">94 Years</option>
+	<option value="95">95 Years</option>
+	<option value="96">96 Years</option>
+	<option value="97">97 Years</option>
+	<option value="98">98 Years</option>
+	<option value="99">99 Years</option>
+	<option value="100">100 Years</option>
+	<option value="101">101 Years</option>
+	<option value="102">102 Years</option>
+	<option value="103">103 Years</option>
+	<option value="104">104 Years</option>
+	<option value="105">105 Years</option>
+	<option value="106">106 Years</option>
+	<option value="107">107 Years</option>
+	<option value="108">108 Years</option>
+	<option value="109">109 Years</option>
+	<option value="110">110 Years</option>
+	<option value="111">111 Years</option>
+	<option value="112">112 Years</option>
+	<option value="113">113 Years</option>
+	<option value="114">114 Years</option>
+	<option value="115">115 Years</option>
+	<option value="116">116 Years</option>
+	<option value="117">117 Years</option>
+	<option value="118">118 Years</option>
+	<option value="119">119 Years</option>
+	<option value="120">120 Years</option>
+	<option value="121">121 Years</option>
+	<option value="122">122 Years</option>
+	<option value="123">123 Years</option>
+	<option value="124">124 Years</option>
+	<option value="125">125 Years</option>
+
+</select>
+            </div>
+            <div class="col-3">
+                <label>
+                    Gender of Elderly
+                </label>
+                <table id="rd_ElderlyGender" class="rdo_panel" border="0">
+	<tr>
+		<td><input id="rd_ElderlyGender_0" type="radio" name="elderGender" value="Male" /><label for="rd_ElderlyGender_0">Male</label></td>
+	</tr><tr>
+		<td><input id="rd_ElderlyGender_1" type="radio" name="elderGender" value="Female" /><label for="rd_ElderlyGender_1">Female</label></td>
+	</tr>
+</table>
+            </div>
+            <div class="col-3">
+                <label>
+                    Is he/she bed ridden
+                </label>
+                <select name="isBedRidden" id="ddl_BedRidden" class="rdo_panel">
+	<option selected="selected" value="">-Bed Ridden-</option>
+	<option value="true">Yes</option>
+	<option value="false">No</option>
+
+</select>
+            </div>
+            <p>
+                <span><b>Work that she needs to do</b> </span>
+            </p>
+            <div class="col-1 parentdiv">
+                <table id="chk_ElderlyServicelist" class="chklist_pannel" border="0">
+	<tr>
+		<td><input id="chk_ElderlyServicelist_0" type="checkbox" value="true" name="bathingSponging" /><label for="chk_ElderlyServicelist_0">Bathing & Sponging</label></td>
+	</tr><tr>
+		<td><input id="chk_ElderlyServicelist_1" type="checkbox" value="true" name="cleaningUtensilsOfElderly" /><label for="chk_ElderlyServicelist_1">Cleaning Utensils of Elderly</label></td>
+	</tr><tr>
+		<td><input id="chk_ElderlyServicelist_2" type="checkbox" value="true" name="cookingForPatient" /><label for="chk_ElderlyServicelist_2">Cooking for Patient</label></td>
+	</tr><tr>
+		<td><input id="chk_ElderlyServicelist_3" type="checkbox" value="true" name="diaperChange" /><label for="chk_ElderlyServicelist_3">Diaper Change</label></td>
+	</tr><tr>
+		<td><input id="chk_ElderlyServicelist_4" type="checkbox" value="true" name="elderlyFeeding" /><label for="chk_ElderlyServicelist_4">Feeding</label></td>
+	</tr><tr>
+		<td><input id="chk_ElderlyServicelist_5" type="checkbox" value="true" name="givingMedicines" /><label for="chk_ElderlyServicelist_5">Giving Medicines</label></td>
+	</tr><tr>
+		<td><input id="chk_ElderlyServicelist_6" type="checkbox" value="true" name="injection" /><label for="chk_ElderlyServicelist_6">Injection</label></td>
+	</tr><tr>
+		<td><input id="chk_ElderlyServicelist_7" type="checkbox" value="true" name="massage" /><label for="chk_ElderlyServicelist_7">Massage</label></td>
+	</tr><tr>
+		<td><input id="chk_ElderlyServicelist_8" type="checkbox" value="true" name="ctl00$ContentPlaceHolder1$chk_ElderlyServicelist$chk_ElderlyServicelist_8" /><label for="chk_ElderlyServicelist_8">Taking Elderly for a Walk</label></td>
+	</tr>
+</table>
+                 
+                 <div class="col-3" width="98%" style="border: 0; width: 99%;">
+                <label> Details of service required to the Elder/Patient
+                      <textarea name="ctl00$ContentPlaceHolder1$txt_OtherElderlyServices" rows="2" cols="20" id="txt_OtherElderlyServices" placeholder="Other Elderly Care Services" style="min-height: 30px;">
+</textarea>
+                </label>
+            </div>
+
+               
+                <br />
+                <br />
+            </div>
+        </div>
+        <br>
+        <div class="col-3 parentdiv">
+            <label>
+                Religion preference (If any)
+                <select name="relifionPreference" id="ddl_Religion">
+	<option value="">-Religion Preferences-</option>
+	<option value="Hindu">Hindu</option>
+	<option value="Muslim">Muslim</option>
+	<option value="Christian">Christian</option>
+	<option value="Jain">Jain</option>
+	<option value="Sikh">Sikh</option>
+	<option value="Buddhist">Buddhist</option>
+
+</select>
+            </label>
+        </div>
+        <div class="col-3 parentdiv">
+            <label>
+                Gender Preferences
+                <select name="genderPreference" id="ddl_Gender">
+	<option selected="selected" value="Any">-Gender Preferences-</option>
+	<option value="Male">Male</option>
+	<option value="Female">Female</option>
+
+</select>
+            </label>
+        </div>
+        <div class="col-3 parentdiv">
+            <label>
+                Age Preferences
+                <input name="agePreference" type="number" id="txt_Age" placeholder="Age Preferences" />
+            </label>
+        </div>
+        <div class="col-2 parentdiv">
+            <label>
+                Any other Comments
+                <textarea name="comments" rows="2" cols="20" id="txt_Comments" placeholder="Any other comments">
+</textarea>
+            </label>
+        </div>
+        <div class="col-2 parentdiv">
+            <label>
+                Your Address for Interview
+                <textarea name="interviewAddress" rows="2" cols="20" id="txt_InterviewAddress" placeholder="Interview Address">
+</textarea>
+            </label>
+        </div>
+        <div class="col-submit">
+            <input type="submit" name="ctl00$ContentPlaceHolder1$btn_SaveChanges" value="Submit" onclick="retun fn_ValidateRequirements();" id="btn_SaveChanges" class="submitbtn" />
+        </div>
+    </div>
+
+    </div>
+    </div>
+    
+
+    </div>
+<input name="userId" type="hidden" value="<%= user._id%>">
+</form>
