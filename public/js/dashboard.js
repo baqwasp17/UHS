@@ -15,3 +15,9 @@ $('.closeThis').click(function() {
   $(".popback.active").removeClass("active");
   return false;
 });
+
+$('.btn_DeleteRequirement').click(function() {
+	$(this).parents('.dash-block').fadeOut();
+	return false;
+})
+
