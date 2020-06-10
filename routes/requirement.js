@@ -9,11 +9,19 @@ router.get('/getRequirement', authenticate, reqController.getRequirement);
 // post requirement
 router.post('/postRequirement', authenticate, reqController.postRequirement);
 
-// patch requirement
-router.patch('/updateRequirement/:reqId', authenticate, reqController.patchRequirement);
+// get update requirememnts
+router.get('/updateRequirement/:reqId', authenticate, reqController.getUpdateRequirement);
+
+// patch update requirement
+router.post('/updateRequirement', authenticate, reqController.postUpdateRequirement);
 
 // delete requirement
-router.patch('/deleteRequirement/:reqId', authenticate, reqController.deleteRequirement);
+router.delete('/deleteRequirement/:reqId', authenticate, reqController.deleteRequirement);
 
-router.get('/dashboard', authenticate, reqController.testRequirement);
+// shortlist
+router.get('/shortlist/:reqId', authenticate, reqController.shortlist);
+
+router.post('/checkout', authenticate, reqController.postCheckout);
+
+router.get('/dashboard', authenticate, reqController.getDashboard);
 module.exports = router;

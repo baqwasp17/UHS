@@ -60,77 +60,7 @@ app.use(flash());
 app.use('/index', indexRouter);
 app.use('/housekeepers', housekeeperRoutes);
 app.use('/users', userRoutes);
-app.use('/profile', (req, res, next) => {
-	res.render('profile', {
-		housekeepers: [{
-			_id:				"012345",
-			serviceType:		1,
-			firstName:			"Whatever",
-			lastName:			"Goes",
-			gender:				"Female",
-			liveIn:				"Yes",
-			noOfHoursCanWork: 	8,
-			housekeeperAge:		34,
-			nativePlace:		"Somewhere I belong",
-			location:			"Here",
-			verifiedDocs:		['Aadhar', 'Voter\'s ID Card'],
-			languages:			['Hindi', 'Japanese', 'English'],
-			cleaningService:	{
-				bathroomCleaning:		true,
-				clothesIroning:			true,
-				clothesWashingHand:		true,
-				clothesWashingMachine:	true,
-				dusting:				true,
-				floorCleaning:			true,
-				groceryShopping:		true,
-				utensilCleaning:		true
-			},
-			experience:			{
-				years:			8,
-				description:	["Worked here","Worked there", "Worked Everywhere"],
-			},
-			picture:	'https://www.gravatar.com/avatar/'+crypto.createHash('md5').update(Math.random().toString(36).substring(7)).digest('hex')+'?s=200&d=robohash'
-		},
-		{
-			_id:				"012346",
-			serviceType:		3,
-			firstName:			"Monkey D.",
-			lastName:			"Luffy",
-			gender:				"Male",
-			liveIn:				"Yes",
-			noOfHoursCanWork: 	8,
-			housekeeperAge:		20,
-			nativePlace:		"Foosha Village",
-			location:			"New World",
-			verifiedDocs:		['Aadhar', 'Voter\'s ID Card'],
-			languages:			['Japanese', 'Engrish'],
-			cleaningService:	{
-				bathroomCleaning:		true,
-				clothesIroning:			true,
-				clothesWashingHand:		true,
-				dusting:				true,
-				floorCleaning:			true,
-				groceryShopping:		true,
-				utensilCleaning:		true
-			},
-			cookingService: {
-				nonVeg:				true,
-				breakFast:			true,
-				lunch:				true,
-				dinner:				true,
-				foodPreference:		"whatever",
-				threeBestDishes:	["niku","niku","niku"]
-			},
-			experience:			{
-				years:			4,
-				description:	["Worked as captain of pirate crew on Mary Go","Worked as captain of pirate crew on Thousand Sunny"],
-			},
-
-			picture:	'https://www.gravatar.com/avatar/'+crypto.createHash('md5').update(Math.random().toString(36).substring(7)).digest('hex')+'?s=200&d=robohash'
-		}],
-		user: req.session.user
-	});
-});
+app.use('/successbooking', indexRouter);
 app.use('/bookings', bookingRoutes);
 app.use('/requirements', requirementRoutes);
 app.use('/', indexRouter);

@@ -1,0 +1,188 @@
+/*	--------------------------------------------------
+	Reveal Modals
+	-------------------------------------------------- */
+		
+	.reveal-modal-bg { 
+		position: fixed; 
+		height: 100%;
+		width: 100%;
+		background: #000;
+		background:rgba(0, 0, 0, 0.78);
+		z-index: 100;
+		display: none;
+		top: 0;
+		left: 0; 
+		z-index: 2001;
+		}
+	
+.reveal-modal {
+visibility: hidden;
+top: 19px;
+left: 0;
+margin: auto;
+width: 100%;
+background: transparent;
+position: fixed;
+z-index: 101;
+padding: 30px 0 34px;
+
+z-index: 3000;
+overflow: auto;
+height: 100%;
+}
+		.popupbody {
+    margin: auto;
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    
+}
+.popupcontainer {
+float: left;
+position: relative;
+width: 100%;
+padding: 0%;
+color: #333;
+background-color: #fff;
+-moz-border-radius: 10px;
+/* -webkit-border-radius: 10px; */
+/* border-radius: 10px; */
+-moz-box-shadow: 0 0 10px rgba(0,0,0,.4);
+/* -webkit-box-shadow: 0 0 10px rgba(0,0,0,.4); */
+-box-shadow: 0 0 10px rgba(0,0,0,.4);
+}
+.popupcontainer h1, .popupcontainer p, .popupcontainer a {
+color:inherit;
+}
+.popupcontainer h1 {
+font-size: 27px;
+font-weight: normal;
+color: #333;
+font-family: 'Open Sans Condensed', sans-serif;
+padding: 10px 0;
+background-color: #f0f0f0;
+border-bottom: 1px dotted #ddd;
+margin: 0;
+text-align: center;
+}
+.popupcontainer big {
+font-size: 27px;
+font-weight: normal;
+color: #333;
+font-family: 'Open Sans Condensed', sans-serif;
+padding: 10px 0; 
+border-bottom: 1px dotted #ddd;
+margin: 0;
+text-align: center;
+display: block;
+}
+.popuptext {
+    padding: 3%;
+    display: block;
+}
+.popupbtns {
+display: block;
+padding: 0;
+text-align: right;
+/* border-top: 1px dotted #ddd; */
+background-color: #ddd;
+}
+.popupbtns .btn_auto {
+    border-radius: 0;
+    padding: 14px 20px;
+}
+
+.popupfrm {
+float: left;
+width: 85%;
+margin: 0 8%;
+}
+.popupfrmrow {
+    float: left;
+    width: 100%;
+    margin: 0 0 13px;
+}
+.popupfrmrow span {
+    color: #fff;
+    margin: 0 0 10px;
+    display: block;
+}
+select.inputbox {
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    border: 0;
+    outline:0;
+} 
+input.inputbox {
+    width: 97%;
+    height: 40px;
+    border: 0;
+    border-radius: 10px;
+    padding: 0 1%;
+    outline:0;
+}
+.popupfrmrow .searchbtn {
+    padding: 10px;
+    border: 0;
+}
+	.reveal-modal.small 		{ width: 200px; margin-left: -140px;}
+	.reveal-modal.medium 		{ width: 400px; margin-left: -240px;}
+	.reveal-modal.large 		{ width: 600px; margin-left: -340px;}
+	.reveal-modal.xlarge 		{ width: 800px; margin-left: -440px;}
+	
+	.reveal-modal .close-reveal-modal {
+		font-size: 22px;
+		line-height: .5;
+		position: absolute;
+		top: 16px;
+		right: 11px;
+		color: #aaa;
+		text-shadow: 0 -1px 1px rbga(0,0,0,.6);
+		font-weight: bold;
+		cursor: pointer;
+		} 
+		
+		
+		.reveal-modal.pop_large .popupbody {
+max-width: 800px;
+}
+
+
+
+@media only screen and (max-width: 480px)
+{
+.reveal-modal {
+visibility: hidden;
+top: 19px;
+left: 0;
+margin: auto;
+width: 100%;
+background: transparent;
+position: absolute;
+z-index: 101;
+padding: 30px 0 34px;
+z-index: 3000;
+}
+}
+
+
+
+
+
+	/*
+		
+	NOTES
+	
+	Close button entity is &#215;
+	
+	Example markup
+	
+	<div id="myModal" class="reveal-modal">
+		<h2>Awesome. I have it.</h2>
+		<p class="lead">Your couch.  I it's mine.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ultrices aliquet placerat. Duis pulvinar orci et nisi euismod vitae tempus lorem consectetur. Duis at magna quis turpis mattis venenatis eget id diam. </p>
+		<a class="close-reveal-modal">&#215;</a>
+	</div>
+	
+	*/

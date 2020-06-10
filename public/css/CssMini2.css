@@ -29,6 +29,8 @@ max-width: 100%;
 
 .global {
 margin: auto;
+width: 100%;
+max-width: 1000px;
 }
 .wraper {
 float: left;
@@ -864,7 +866,7 @@ float:left;
     width: 100%;
     background-color: #fff;
     min-height: 48px;
-    margin: 20px 0 20px;
+    margin: 33px 0px 20px;
     border-radius: 3px; 
     overflow: auto;
 }
@@ -1276,6 +1278,11 @@ display: block;
 padding: 5px 0;
 margin: 10px 0 10px;
 }
+.wraper .global {
+    width: 100%;
+    max-width: 1000px;
+}
+
 .subheading {
 margin: 0px 0 10px;
 display: block;
@@ -2310,7 +2317,7 @@ input[type=file].txt_large{height:auto;padding: 4px 0px 4px 4px;}
 .txt_arealarge{width:96%;min-height:100px;padding:10px 3% 10px 4px;border:1px solid #aaa;}
 .txt_areamedium{width:66%;min-height:100px;padding:10px 3% 10px 4px;border:1px solid #aaa;}
 .txt_areasmall{width:46%;min-height:100px;padding:10px 3% 10px 4px;border:1px solid #aaa;}
-.btn_auto{background-color: #4bb8e7;
+/*.btn_auto{background-color: #4bb8e7;
 background-image: -webkit-gradient(linear, top, bottom, color-stop(0, #8ac265), color-stop(1, #6db33f));
 background-image: -webkit-linear-gradient(top, #8ac265, #6db33f);
 background-image: -moz-linear-gradient(top, #4bb8e7, #56c3c7);
@@ -2318,6 +2325,7 @@ filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#8ac265', End
 background-image: -ms-linear-gradient(top, #8ac265, #6db33f);
 background-image: -o-linear-gradient(top, #8ac265, #6db33f);
 background-image: linear-gradient(top, #8ac265, #6db33f);border:0 none;color:#fff;padding:10PX 15PX;text-decoration:none;width:auto;display:inline-block;cursor:pointer;border-radius: 0px;}
+*/
 .btn_large{background-color: #3d8901;
 border: 0 none;
 color: #fff;

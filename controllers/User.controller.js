@@ -117,7 +117,6 @@ exports.postReset = (req, res, next) => {
 		})
 		.then(result => {
 			res.redirect("/");
-			// TODO: continue here
 			return transporter.sendMail({
 				to: req.body.email,
 				from: 'artand1997@gmail.com',

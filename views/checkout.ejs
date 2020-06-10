@@ -1,6 +1,7 @@
 <%- layout('layout')%>
-<link href="/css/CssMini2.css" rel="stylesheet" type="text/css">
 <link href="/css/StyleSheet2.css" rel="stylesheet" type="text/css">
+<link href="/css/reveal.css" rel="stylesheet" type="text/css">
+<link href="/css/Search_Details2.css" rel="stylesheet" type="text/css">
 <style>
 span > b {
 	line-height: normal;
@@ -8,14 +9,14 @@ span > b {
 </style>
 
 <body>
+<form action="">
 <div class="wrapper">
 <div class="section">
 <div class="global">
 
-	<h3 class="headingtext" style="font-size:19px;"><%=housekeepers.length%> matche(s) for requirementID: <%=reqId%></h3>
+	<h3 class="headingtext" style="font-size:19px;">Just one more step</h3>
 	
-	<%for(var i in housekeepers) {%>
-	<% var hk = housekeepers[i]%>
+	<% var hk = housekeeper%>
 	<% var servType = [];%>
 	
 	<% if(hk.serviceType & 1) {%>
@@ -33,11 +34,7 @@ span > b {
 	<% if(hk.serviceType & 8) {%> 
 	<% servType.push("Elderly Care");%>
 	<% }%>
-	<form action="/requirements/checkout" method="POST" id="<%=hk._id%>_form">
-	<input type="hidden" name="housekeeperId" value="<%=hk._id%>"/>
-	<input type="hidden" name="reqId" value="<%=reqId%>"/>
-	<input type="hidden" name="reqType" value="<%=reqType%>"/>
-<div class="list-iteme">
+	<div class="list-iteme">
 	                <div class="list-imgdiv">
 	
 	<div class="list-imgshow">
@@ -49,7 +46,6 @@ span > b {
 	                    <p class="list-btns">
 	                        <a href="#" class="btn_auto theme_button btn_preview" data-pop-id="<%=hk._id%>">
 	                            View Details</a> 
-							<a href="#" onclick="document.getElementById('<%=hk._id%>_form').submit();" id="btn_Shortlist" class="btn_Shortlist theme_button btn_auto">Hire</a>
 	                    </p>
 	
 	                    <p style="display: none;">
@@ -65,7 +61,7 @@ span > b {
 	                </div>
 	                <p class="list-btns mobi">
 	                    <a href="#" class="btn_auto btn_preview" data-pop-id="<%=hk._id%>">
-	                        View Details</a> <a href="#" id="hyp_Shortlist" class="btn_Shortlist btn_auto" rel="130694">Hire</a>
+	                        View Details</a> 
 	                </p>
 	                <div class="list-infodiv">
 	                    <input type="hidden" name="ctl00$cp_Main$rpt_Candidates$ctl00$hf_CandidateID" id="hf_CandidateID" value="130694">
@@ -184,7 +180,9 @@ span > b {
 	<% }%>
 	</p></div>
 	<% }%>
+
 	<!-- popback -->
+
 	</div>
 	<div class="popback" id="<%=hk._id%>" style="display: none;">
 	<span class="cross popupbg"></span>
@@ -220,7 +218,7 @@ span > b {
 		</div>
 		&nbsp;
 	</div>
-	<h3 class="headingtext" style="font-size: x-large;">
+	<h3 class="headingtext" style="font-size:x-large;">
 		<%=hk.firstName%> <%=hk.lastName%></h3>
 	<p class="subheading">
 		<%for(var ser in servType) {%>
@@ -386,12 +384,60 @@ span > b {
 	<div class="search_info popupbtnrow">
 	<p>
 	
-	<a href="#" id="Shortlist_Now" class="btn_Shortlist shortlistlink btn_auto" rel="130694">Hire</a></p>
+	</p>
 	</div>
 	</div>
 	</div>
-	</div></form>
-	<%}%>
+	<input class="theme_button btn_Shortlist" style="text-transform:none; padding:11px 11px;" type="button"  value="Hire Now">
+<div id="Div_Payments" class="popback activate" style="z-index: 10000000; display: none;">
+        <span class="cross popupbg"></span>
+        <div class="popupbody" style="max-width: 650px;">
+            <div class="popupcontainer" style="top: 9px;">
+                <a href="#" class="closeThis cross">
+                    <img src="https://www.bookmybai.com/images/delete-icon.png" alt="delete"></a>
+                <div class="popuptext" style="padding: 0;">
+                    <p id="PaymentsMessage">
+                    </p>
+                </div>
+				<div class="fbpostdiv ExpressDiv">
+				<big class="ExpressDiv_heading">
+				To Hire this house keeper, kindly pay a fee of Rs. <%=payment%>
+				</big> <p class="centeraline" style="border-bottom: 1px solid #eee; padding: 0 0 5px;"><b style="font-size: 15px;">
+				Next steps
+				</b></p>
+				<ul>
+				<li><b>1)</b>
+				Pay the minimal amount of Rs. 1500 for each service.</li>
+				<li><b>2)</b>
+				For hiring any housekeeper, one has to pay first the minimal amount.
+				</li><li><b>3)</b>
+				If this housekeeper is not available, then we will send you other options of the housekeeper who are similar to the one that you have hired.
+				<span style="color: #BE3B3B;">
+				If we are unable to find you a housekeeper, then we will refund the amount you have paid for any no. of services. No questions asked.
+				</span> </li><li><b>4)</b>
+				Talk to the housekeeper on the phone or meet the housekeeper personally at your home and discuss the fee for the service.
+				</li><li><b>5)</b>
+				If you select the housekeeper, then he/she will start working for you from the next day.
+				</li><li><b>6)</b>
+				You have to pay half the amount on the very first day of the housekeeper joins you.
+				<span style="color: #BE3B3B;">
+				We charge only once for each service.
+				</span></li><li><b>7)</b>
+				If you fire the maid or the maid leaves within 6-months of joining you,
+				then we will replace the maid with a new maid for FREE of cost. No questions asked!
+				</li></ul><p><b>
+				Note:Most of the housekeeper agencies are frauds, they will charge you a fee, and the housekeeper will never join or run away after a few days.
+				But for UHS, your satisfaction is the highest priority. Trust us to give you the best quality housekeeper and service.
+				</b></p><p class="centeraline"><a href="/Client/Payments.aspx?Source=Shortlists&amp;RequirementID=564703" id="btn_Payments" class="btn_auto">Pay Rs. <%=payment%>/-</a>
+				</p>
+				<p class="centeraline">
+				<a href="#" class="link btn_Cross">Close This</a>
+				</p>
+				</div>
+            </div>
+        </div>
+    </div>	
+	</div>
 
 	<script src="/js/jquery-1.9.1.min.js" type="text/javascript"></script>
 	<script>
@@ -410,7 +456,24 @@ span > b {
 		return false;
 	});
 	</script>
+	<script>
+		$(".btn_Shortlist").click(function() {
+			$("#Div_Payments").fadeIn();
+			return false;
+		});
+	</script>
+	<script src="https://js.stripe.com/v3/"></script>
+	<script>
+		var stripe = Stripe('pk_test_90NOFHN2FWqcMRWqwhxLgTBX003CMyjvZq');
+		var orderbtn = document.getElementById('btn_Payments');
+		orderbtn.addEventListener('click', function() {
+			stripe.redirectToCheckout({
+				sessionId: '<%=stripeSessionId%>'
+			});
+		})
+	</script>
 </div>
 </div>
-</div>
+</div></form>
 </body>
+

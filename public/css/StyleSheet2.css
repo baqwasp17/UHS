@@ -46,7 +46,7 @@ max-width: 189px;
 .profile-info {
     float: left;
    background-color: #fff;
-    width: 98%;
+    width: 100%;
     padding:1%;
     margin-bottom: 10px;
 }

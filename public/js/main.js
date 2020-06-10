@@ -115,8 +115,8 @@ jQuery(document).ready(function() {
 
 	//top (header) search
 	jQuery('#toggle_search').on('click', function() {
-		jQuery(this).toggleClass('active');
-		if (jQuery(this).hasClass('active')) {
+		jQuery(this).toggleClass('activate');
+		if (jQuery(this).hasClass('activate')) {
 			jQuery('#header .widget_search').animate({
 				height: '100%'
 			}, 500);
@@ -241,9 +241,9 @@ jQuery(document).ready(function() {
 		jQuery('#product-image').elevateZoom({
 			gallery: 'product-image-gallery',
 			cursor: 'pointer', 
-			galleryActiveClass: 'active', 
+			galleryActiveClass: 'activate', 
 			responsive:true, 
-			loadingIcon: 'img/AjaxLoader.gif'
+			loadingIcon: '/img/AjaxLoader.gif'
 		});
 	}
 	//add review button
@@ -543,29 +543,29 @@ jQuery(window).load(function(){
 		switcherHTML +=    '<h6>Layout</h6>';
 		switcherHTML +=    '<div class="checkbox">';
 		switcherHTML +=        '<label>';
-		switcherHTML +=            '<input type="checkbox" id="layout"> Boxed';
+		switcherHTML +=            '<input type="checkbox" style="height:8px" id="layout"> Boxed';
 		switcherHTML +=        '</label>';
 		switcherHTML +=    '</div>';
 		switcherHTML +=    '<h6>Boxed Patterns</h6>';
 		switcherHTML +=    '<ul id="switcher-patterns" class="list-inline">';
 		switcherHTML +=        '<li>';
 		switcherHTML +=            '<a href="#" data-pattern="pattern1">';
-		switcherHTML +=                '<img src="img/pattern1.png" alt="" width="30" height="30">';
+		switcherHTML +=                '<img src="/img/pattern1.png" alt="" width="30" height="30">';
 		switcherHTML +=            '</a>';
 		switcherHTML +=        '</li>';
 		switcherHTML +=        '<li>';
 		switcherHTML +=            '<a href="#" data-pattern="pattern2">';
-		switcherHTML +=                '<img src="img/pattern2.png" alt="" width="30" height="30">';
+		switcherHTML +=                '<img src="/img/pattern2.png" alt="" width="30" height="30">';
 		switcherHTML +=            '</a>';
 		switcherHTML +=        '</li>';
 		switcherHTML +=        '<li>';
 		switcherHTML +=            '<a href="#" data-pattern="pattern3">';
-		switcherHTML +=                '<img src="img/pattern3.png" alt="" width="30" height="30">';
+		switcherHTML +=                '<img src="/img/pattern3.png" alt="" width="30" height="30">';
 		switcherHTML +=            '</a>';
 		switcherHTML +=        '</li>';
 		switcherHTML +=        '<li>';
 		switcherHTML +=            '<a href="#" data-pattern="pattern4">';
-		switcherHTML +=                '<img src="img/pattern4.png" alt="" width="30" height="30">';
+		switcherHTML +=                '<img src="/img/pattern4.png" alt="" width="30" height="30">';
 		switcherHTML +=            '</a>';
 		switcherHTML +=        '</li>';
 		switcherHTML +=    '</ul>';
@@ -579,7 +579,7 @@ jQuery(window).load(function(){
 
 		//switcher toggle
         jQuery('#switcher span').on('click', function(){
-            jQuery(this).parent().toggleClass('active');
+            jQuery(this).parent().toggleClass('activate');
         });
 
         //boxed or wide
@@ -615,7 +615,7 @@ jQuery(window).load(function(){
             e.preventDefault();
             e.stopPropagation();
             var color = jQuery(this).data('color');
-            jQuery('#color-switcher-link').attr('href', 'css/main' + color + '.css');
+            jQuery('#color-switcher-link').attr('href', '/css/main' + color + '.css');
         });
 
 		//version switcher

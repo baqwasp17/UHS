@@ -1,3 +1,565 @@
-<h1 class="mt-4">Dashboard</h1>
-<p class="lead mb-3">Welcome <%= user.name %></p>
-<a href="/users/logout" class="btn btn-secondary">Logout</a>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>UHS</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="/css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- DataTables CSS -->
+    <link href="/css/plugins/dataTables.bootstrap.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+	<link href="/css/CssMini2.css" type="text/css" rel="stylesheet">
+	<link href="/css/main.css" type="text/css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond./js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0;position:fixed;width:100%">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">UHS</a>
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-top-links navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-envelope fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-messages">
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <strong>John Smith</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Yesterday</em>
+                                    </span>
+                                </div>
+                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <strong>John Smith</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Yesterday</em>
+                                    </span>
+                                </div>
+                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <strong>John Smith</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Yesterday</em>
+                                    </span>
+                                </div>
+                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>Read All Messages</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-messages -->
+                </li>
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-tasks fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-tasks">
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Task 1</strong>
+                                        <span class="pull-right text-muted">40% Complete</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                            <span class="sr-only">40% Complete (success)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Task 2</strong>
+                                        <span class="pull-right text-muted">20% Complete</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                                            <span class="sr-only">20% Complete</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Task 3</strong>
+                                        <span class="pull-right text-muted">60% Complete</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                            <span class="sr-only">60% Complete (warning)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Task 4</strong>
+                                        <span class="pull-right text-muted">80% Complete</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                                            <span class="sr-only">80% Complete (danger)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>See All Tasks</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-tasks -->
+                </li>
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-bell fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-alerts">
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-comment fa-fw"></i> New Comment
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                                    <span class="pull-right text-muted small">12 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-envelope fa-fw"></i> Message Sent
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-tasks fa-fw"></i> New Task
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>See All Alerts</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-alerts -->
+                </li>
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="/users/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li class="sidebar-search">
+                            <div class="input-group custom-search-form">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                            </div>
+                            <!-- /input-group -->
+                        </li>
+                        <li>
+                            <a href="/myhome"><i class="fa fa-dashboard fa-fw"></i>Service Provider UHS</a>
+                        </li>
+                        
+                        <li>
+                            <a class="active" href="/"><i class="fa fa-table fa-fw"></i>Home</a>
+                        </li>
+                        <li>
+                            <a href="forms"><i class="fa fa-edit fa-fw"></i> Forms</a>
+                        </li>
+                                               
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+
+        <div id="page-wrapper" style="background-image: url('/images/innerpage-bg.jpg');overflow:auto">
+                        <!-- /.panel-body -->
+			<div class="dash-block new_post_Strip" style="background-color:#1e83c7;color=#fff;overflow:hidden;box-sizing: border-box;padding:10px;">
+                <a href="/requirements/getRequirement" style="text-decoration:none; display:table; width: 100%">
+				<span style="display:inline-block;text-align:center;padding:6% 2%;vertical-align:middle;font-size:31px;color:#1e83c7;background-color:#fff;border-radius:108px;box-sizing:border-box;margin:-24px 1px;">Post Now</span> <big style="display:inline-block;width:66%;font-size:19px;padding:14px;text-align:center;color:#fff; font-weight:bold;text-transform:uppercase;vertical-align:middle">Want to post new requirement<small style="background-color:#04609e;color:#fff;text-align:center;font-size:19px;border-radius:40px;display:block;width:265px;padding:10px;margin:13px auto 0">Click
+                    Here</small> </big></a>
+            </div>
+
+<% for(var req in requirements) {%>
+
+<% var r = requirements[req]%>
+<% var reqType = [];%>
+<% var cleaningReq = [];%>
+<% var foodType = [];%>
+<% var mealType= [];%>
+<% var babyReq = [];%>
+<% var elderlyReq = [];%>
+
+<% if(r.requirementType & 1) {%>
+<% reqType.push("Cleaner");%>
+<% r.cleaningService.bathroomCleaning?cleaningReq.push("Bathroom Cleaning"):undefined;%>
+<% r.cleaningService.clothesIroning?cleaningReq.push("Clothes Ironing"):undefined;%>
+<% r.cleaningService.clothesWashingHand?cleaningReq.push("Clothes Washing (With Washing Machine)"):undefined;%>
+<% r.cleaningService.clothesWashingMachine?cleaningReq.push("Clothes Washing (Without Washing Machine)"):undefined;%>
+<% r.cleaningService.dusting?cleaningReq.push("Dusting"):undefined;%>
+<% r.cleaningService.floorCleaning?cleaningReq.push("Floor Cleaning"):undefined;%>
+<% r.cleaningService.groceryShopping?cleaningReq.push("Grocery Shopping"):undefined;%>
+<% r.cleaningService.utensilCleaning?cleaningReq.push("Utensil Cleaning"):undefined;%>
+<% }%>
+
+<% if(r.requirementType & 2) {%> 
+<% reqType.push("Cook");%>
+<% r.cookingService.veg?foodType.push("Veg"):undefined;%>
+<% r.cookingService.nonVeg?foodType.push("Non Veg"):undefined;%>
+<% r.cookingService.breakFast?mealType.push("Breakfast"):undefined;%>
+<% r.cookingService.lunch?mealType.push("Lunch"):undefined;%>
+<% r.cookingService.dinner?mealType.push("Dinner"):undefined;%>
+<% }%>
+
+<% if(r.requirementType & 4) {%>
+<% reqType.push("Baby Sitter");%>
+<% r.babySittingService.babyBathing?babyReq.push("Baby Bathing"):undefined;%>
+<% r.babySittingService.babyMassage?babyReq.push("Baby Massage"):undefined;%>
+<% r.babySittingService.changingDiaper?babyReq.push("Changing Diaper"):undefined;%>
+<% r.babySittingService.cleaningUtensilsOfBaby?babyReq.push("Cleaning Utensils of Baby"):undefined;%>
+<% r.babySittingService.feeding?babyReq.push("Feeding"):undefined;%>
+<% r.babySittingService.motherMassage?babyReq.push("Mother Massage"):undefined;%>
+<% r.babySittingService.preparingBabyFood?babyReq.push("Preparing Baby Food"):undefined;%>
+<% r.babySittingService.preparingBabyForSleep?babyReq.push("Preparing Baby for sleep"):undefined;%>
+<% r.babySittingService.takingBabyForAWalk?babyReq.push("Taking Baby for a Walk"):undefined;%>
+<% r.babySittingService.washingBabyClothes?babyReq.push("Washing Baby Clothes"):undefined;%>
+<% }%>
+
+<% if(r.requirementType & 8) {%> 
+<% reqType.push("Elderly Care");%>
+<% r.elderlyCareService.bathingSponging?elderlyReq.push("Bathing & Sponging"):undefined%>
+<% r.elderlyCareService.cleaningUtensilsOfElderly?elderlyReq.push("Cleaning Utensils of Elderly"):undefined%>
+<% r.elderlyCareService.cookingForPatient?elderlyReq.push("Cooking for Patient"):undefined%>
+<% r.elderlyCareService.diaperChange?elderlyReq.push("Diaper Change"):undefined%>
+<% r.elderlyCareService.feeding?elderlyReq.push("Feeding"):undefined%>
+<% r.elderlyCareService.givingMedicines?elderlyReq.push("Giving Medicines"):undefined%>
+<% r.elderlyCareService.injection?elderlyReq.push("Injection"):undefined%>
+<% r.elderlyCareService.massage?elderlyReq.push("Massage"):undefined%>
+<% }%>
+
+<div class="dash-block">
+<big class="headingtext flot-left" style="font-family: helvetica; font-size: medium">
+Requirement posted for <%=reqType.join()%> | RequirementID - <%=r._id%>
+<span class="datediv">
+<%=r.dateAdded.toDateString()%></span></big><a id="btn_DeleteRequirement" href="#" rel="563963" class="btn_DeleteRequirement lnk-auto flot-right">
+<img src="/images/close_icon.png">
+</a><a href="#" style="text-decoration:none" rel="#" class="btn_RequirementDetails lnk-auto flot-right">View Requirement</a>
+<a href="/requirements/shortlist/<%=r._id%>" style="text-decoration:none" class="lnk-auto flot-right"><i>
+<img src="/images/search-icon.png"></i> Shortlist
+more maids</a>
+<div class="shortlisttbl">
+<div id="EmptyShotrlisted" class="shortlistnote">
+<p>
+You have not shortlisted any maid yet <a style="padding: 11px 11px; text-transform:none" href="/requirements/shortlist/<%=r._id%>" class="btn_auto theme_button">Shortlist Now</a></p>
+</div>
+</div>
+<div class="RequirementDetails popback" style="display: none">
+<div class="search_info">
+<div class="searchinfo_body">
+<div class="requirmentdetailsdiv">
+
+<a href="#" class="closeThis cross">
+	<img src="../images/delete-icon.png" alt="delete"></a>
+<table style="font-family:helvetica;font-size:small"cellspacing="2" cellpadding="2">
+	<tbody>
+		<tr>
+			<td colspan="3">
+				<span><b>Requirement Type</b></span> <b>
+					<%=reqType.join()%></b>
+			</td>
+		</tr>
+		<tr>
+			<%if(r.requirementType & 1) {%>
+			<td id="tr_Members">
+				<span>Number of members</span> <b>
+					<%=r.cleaningService.numberOfPeople%></b>
+			</td>
+			<%}%>
+
+			<%if((!r.requirementType & 1) && (r.requirementType & 2)) {%>
+			<td id="tr_Members">
+				<span>Number of members</span> <b>
+					<%=r.cookingService.numberOfPeople%></b>
+			</td>
+			<%}%>
+
+			<%if(r.requirementType & 1) {%>
+			<td id="tr_RoomType">
+				<span>Size of house</span> <b>
+					<%=r.cleaningService.houseSize%> BHK</b>
+			</td>
+			<%}%>
+
+			<td id="tr_Salary">
+				<span>Approx salary</span> <b>
+					<%=r.approxSalary%></b>
+			</td>
+
+		</tr>
+		<tr>
+			<td id="tr_Locality">
+				<span>Location</span> <b>
+					<%=r.interviewAddress%></b>
+			</td>
+
+			<td id="tr_Religion">
+				<span>Religion preference</span> <b>
+					Hindu</b>
+			</td>
+
+			<td id="tr_NoofHours">
+				<span>Number of hours</span> <b>
+					<%=r.numberOfHoursDaily%></b>
+			</td>
+
+		</tr>
+		<tr>
+			<td id="tr_Gender">
+				<span>Gender</span> <b>
+					<%=r.genderPreference%></b>
+			</td>
+
+		</tr>
+		<tr>
+			<td id="tr_Details" colspan="2" style="text-align: left">
+				<span>Details of work</span> <b>
+					<%=r.comments%></b>
+			</td>
+
+
+		</tr>
+		<%if(r.requirementType & 1) {%>
+		<tr id="tr_ServiceDetails">
+		<td colspan="3">
+				<big>Cleaning Service details</big>
+				<ul class="requirment">
+					<li style="width: 100%"><%=cleaningReq.join()%></li>
+				</ul>
+			</td>
+		</tr>
+		<%}%>
+
+		<%if(r.requirementType & 2) {%>
+		<tr id="tr_FoodType">
+		<td colspan="3">
+				<big>Cooking</big>
+				<ul class="requirment table">
+					<li><span>Food type :</span><%=foodType.join()%></li>
+					<li><span>Meal type :</span><%=mealType.join()%></li>
+					<li><span>Food Preferences :</span>
+						<%=r.cookingService.foodPreferences%></li>
+				</ul>
+			</td>
+		</tr>
+		<%}%>
+
+		<%if(r.requirementType & 4) {%>
+		<tr id="tr_BabyAge">
+		<td colspan="3">
+				<big>Baby Sitting</big>
+				<ul class="requirment table">
+					<li><span>Baby Age</span> <b><%=r.babySittingService.babyAge%> Months</b></li>
+					<li><span>Baby Gender</span> <b><%=r.babySittingService.babyGender%></b></li>
+				</ul>
+				<br>
+				<ul class="requirment table">
+					<li><span><b>Baby Service details</b></span>
+						<br>
+						<%=babyReq.join()%></li>
+				</ul>
+			</td>
+		</tr>
+		<%}%>
+
+		<%if(r.requirementType & 8) {%>
+		<tr>
+			<td id="tr_ElderlyAge" colspan="3">
+				<big>Elderly care</big>
+				<ul class="requirment table">
+					<li><span>Elderly Age</span> <b>
+						<%=r.elderlyCareService.elderAge%> Years</b></li>
+					<li><span>Elderly Gender</span> <b>
+						<%=r.elderlyCareService.elderGender%></b></li>
+				</ul>
+				<br>
+				<ul class="requirment table">
+					<li><span><b>Elderly care details</b></span><br>
+						<%=elderlyReq.join()%></li>
+				</ul>
+			</td>
+
+		</tr>
+		<%}%>
+		<tr>
+			<td colspan="3">
+				<a href="/requirements/search/<%=r.userId%>" class="btn_auto flot-right theme_button" style="text-transform:none; display:block; padding: 11px 11px;">
+					Edit requirement</a>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<br>
+<br>
+</div>
+</div>
+</div>
+</div>
+</div>
+<%}%>
+</div>
+
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+    <script src="/js/jquery.js"></script>
+	<script src="/js/dashboard.js" type="text/javascript"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="/js/plugins/metisMenu/metisMenu.min.js"></script>
+
+    <!-- DataTables JavaScript -->
+    <script src="/js/plugins/dataTables/jquery.dataTables.js"></script>
+    <script src="/js/plugins/dataTables/dataTables.bootstrap.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="/js/sb-admin-2.js"></script>
+
+    <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+    <script>
+    $(document).ready(function() {
+        $('#dataTables-example').dataTable();
+    });
+    </script>
+
+</body>
+
+</html>

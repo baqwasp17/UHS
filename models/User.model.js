@@ -24,6 +24,7 @@ const userSchema = new Schema({
 	email: {type:String, required: [true, "Can't be blank"]},
 	password: {type:String, required: [true, "Can't be blank"]},
 	resetToken: String,
+	permissionLevel: {type: Number, enum: [0, 1]},
 	resetTokenExpiration: Date
 });
 

@@ -100,7 +100,7 @@
                     </span>
 			  <%if(user){%>
                 <span>
-    				<p style="font-weight:">Hi  <%=user.name%>! <a href="/requirements/dashboard" style="cursor:pointer; color:green">My UHS</a> <a href="/users/logout" class="theme_button btn-sm" >Logout</a></p>
+    				<p style="display:table-cell;">Hi  <%=user.name%>! <a href="/requirements/dashboard" class="theme_button" style="cursor:pointer;">My UHS</a> <a href="/users/logout" class="theme_button btn-sm" >Logout</a></p>
 				</span>
 			 <%} else {%>
                     <span>
@@ -135,35 +135,35 @@
                         </div>
                         <nav id="mainmenu_wrapper">
                             <ul id="mainmenu" class="nav sf-menu">
-                                <li class="active">
+                                <li class=<%=title=="home"?"activate":""%>>
                                     <a href="/index">Home</a>
                                 </li>
-                                <li>
+                                <li class=<%=title=="about"?"activate":""%>>
                                     <a href="#info">About</a>
                                 </li>
-                                <li>
-                                    <a href="#service">Services</a>
+                                <li class=<%=title=="services"?"activate":""%>>
+                                    <a href="/services">Services</a>
                                 </li>
-                                <li>
+                                <li class=<%=title=="prices"?"activate":""%>>
                                     <a href="#prices">Prices</a>
                                 </li>
-                                <li>
+                                <li class=<%=title=="bookNow"?"activate":""%>>
                                     <a href="/requirements/getRequirement">BookNow</a>
                                 </li>
-                                <li>
+                                <li class=<%=title=="cleaningTips"?"activate":""%>>
                                     <a href="comingsoon">CleaningTips</a>
                                 </li>
                                                                 
-                                <li>
+                                <li class=<%=title=="blog"?"activate":""%>>
                                     <a href="blog">Blog</a>
                                 </li>
-                                <li>
+                                <li class=<%=title=="analysis"?"activate":""%>>
                                     <a href="analysis">Analysis</a>
                                 </li>
-                                <li>
+                                <li class=<%=title=="videos"?"activate":""%>>
                                     <a href="videos">Videos</a>
                                 </li>
-                                <li>
+                                <li class=<%=title=="contact"?"activate":""%>>
                                     <a href="contact">Contact</a>
                                 </li>
                             </ul>  
@@ -415,9 +415,15 @@
         }
     </script>
         <script type="text/javascript">
-        var elems = Array.prototype.slice.call(document.querySelectorAll('.requirmenttypes td input'));
+        var elems = Array
+		.prototype
+		.slice
+		.call(document.querySelectorAll('.requirmenttypes td input'));
 
-        var elems2 = Array.prototype.slice.call(document.querySelectorAll('.rdo_panel input'));
+        var elems2 = Array
+		.prototype
+		.slice
+		.call(document.querySelectorAll('.rdo_panel input'));
         var Winwidth = window.innerWidth;
 
         if (Winwidth < 481) {
